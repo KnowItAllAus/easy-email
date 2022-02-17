@@ -46,8 +46,8 @@ export const KiaLayout: React.FC<
                 overflowX: 'hidden',
               }}
             >
-              <Card title='Layout' style={{ border: 'none' }}>
-                <BlockLayer renderTitle={props.renderTitle} />
+              <Card title="Placeholder" style={{ border: 'none' }}>
+                <div>Placeholder</div>
               </Card>
             </Card.Grid>
           </Card>
@@ -65,8 +65,8 @@ export const KiaLayout: React.FC<
           className={styles.rightSide}
         >
           <Card
-            size='small'
-            id='rightSide'
+            size="small"
+            id="rightSide"
             style={{
               maxHeight: '100%',
               height: '100%',
@@ -76,14 +76,17 @@ export const KiaLayout: React.FC<
             className={styles.customScrollBar}
           >
             <Tabs>
-              <Tabs.TabPane key='Configuration' title='Configuration'>
+              <Tabs.TabPane key="Configuration" title="Configuration">
                 <AttributePanel />
               </Tabs.TabPane>
               {showSourceCode && (
-                <Tabs.TabPane key='Source code' title='Source code'>
+                <Tabs.TabPane key="Source code" title="Source code">
                   <SourceCodePanel />
                 </Tabs.TabPane>
               )}
+              <Tabs.TabPane key="Layout" title="Layout">
+              <BlockLayer renderTitle={props.renderTitle} />
+              </Tabs.TabPane>
             </Tabs>
           </Card>
         </Layout.Sider>
