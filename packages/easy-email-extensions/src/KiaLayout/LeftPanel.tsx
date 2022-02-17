@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Card, Tabs } from '@arco-design/web-react';
-import { BlockMarketCategory, BlockMarketManager } from '@extensions';
+import {
+  BlockMarketCategory,
+  BlockMarketManager,
+  ShortcutToolbar,
+} from '@extensions';
 import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { Stack } from 'easy-email-editor';
 import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/presetTemplate';
@@ -14,7 +18,9 @@ export const LeftPanel = () => {
   );
 
   const filterCategories = useMemo(() => {
-    return categories.filter((item) => item.blocks.length > 0 && item.name !== 'LAYOUT');
+    return categories.filter(
+      (item) => item.blocks.length > 0 && item.name !== 'LAYOUT'
+    );
   }, [categories]);
 
   useEffect(() => {
@@ -29,7 +35,7 @@ export const LeftPanel = () => {
 
   return (
     <Card style={{ border: 'none' }}>
-      <Tabs tabPosition="top" size="large">
+      <Tabs tabPosition="left" size="mini">
         {filterCategories.map((category, index) => {
           return (
             <Tabs.TabPane
@@ -39,16 +45,16 @@ export const LeftPanel = () => {
                 height: 500,
               }}
               key={category.title}
-              title={(
-                <div
-                  style={{
-                    paddingTop: index === 0 ? 5 : undefined,
-                    paddingBottom: 10,
-                  }}
-                >
-                  {category.title}
-                </div>
-              )}
+              title={
+                index < filterCategories.length - 1 ? (
+                  <TabTitle title={category.title} index={index} />
+                ) : (
+                  <>
+                    <TabTitle title={category.title} index={index} />
+                    <ShortcutToolbar />
+                  </>
+                )
+              }
             >
               <BlockPanelItem category={category} />
             </Tabs.TabPane>
@@ -59,25 +65,41 @@ export const LeftPanel = () => {
   );
 };
 
+const TabTitle: React.FC<{ title: string; index: number }> = ({
+  title,
+  index,
+}) => {
+  return (
+    <div
+      style={{
+        paddingTop: index === 0 ? 5 : undefined,
+        paddingBottom: 10,
+      }}
+    >
+      {title}
+    </div>
+  );
+};
+
 const BlockPanelItem: React.FC<{
   category: BlockMarketCategory;
 }> = React.memo((props) => {
   return (
-    <Tabs tabPosition='left'>
+    <Tabs tabPosition="left">
       {props.category.blocks.map((block, index) => {
         return (
           <Tabs.TabPane
             style={{ padding: 0, height: 500 }}
             key={block.title}
             title={(
-              <Stack alignment='center' spacing='extraTight'>
+              <Stack alignment="center" spacing="extraTight">
                 <div className={styles.blockItem}>{block.title}</div>
                 {block.description && <Help title={block.description} />}
               </Stack>
             )}
           >
             <div
-              className='small-scrollbar'
+              className="small-scrollbar"
               style={{
                 maxHeight: '100%',
                 overflow: 'auto',

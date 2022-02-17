@@ -33,9 +33,6 @@ export const KiaLayout: React.FC<
           style={{ minWidth: 300, maxWidth: 360, width: 360, paddingRight: 0 }}
         >
           <Card bodyStyle={{ padding: 0 }} style={{ border: 'none' }}>
-            <Card.Grid style={{ width: 60 }}>
-              <ShortcutToolbar />
-            </Card.Grid>
             <Card.Grid
               className={styles.customScrollBar}
               style={{
