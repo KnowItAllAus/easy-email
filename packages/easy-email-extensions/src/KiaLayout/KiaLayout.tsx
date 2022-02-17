@@ -83,7 +83,7 @@ export const KiaLayout: React.FC<
                   <SourceCodePanel />
                 </Tabs.TabPane>
               )}
-              <Tabs.TabPane key="Layout" title="Layout">
+              <Tabs.TabPane key="Layout" title="Layer">
                 <BlockLayer renderTitle={props.renderTitle} />
               </Tabs.TabPane>
             </Tabs>

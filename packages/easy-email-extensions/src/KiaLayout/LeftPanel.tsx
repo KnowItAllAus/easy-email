@@ -1,10 +1,96 @@
-import { Card } from '@arco-design/web-react';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Card, Tabs } from '@arco-design/web-react';
+import { BlockMarketCategory, BlockMarketManager } from '@extensions';
+import { Help } from '@extensions/AttributePanel/components/UI/Help';
+import { Stack } from 'easy-email-editor';
+import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/presetTemplate';
+import styles from './index.module.scss';
+
+BlockMarketManager.addCategories(defaultCategories);
 
 export const LeftPanel = () => {
+  const [categories, setCategories] = useState<BlockMarketCategory[]>(
+    BlockMarketManager.getCategories()
+  );
+
+  const filterCategories = useMemo(() => {
+    return categories.filter((item) => item.blocks.length > 0 && item.name !== 'LAYOUT');
+  }, [categories]);
+
+  useEffect(() => {
+    const onChange = (c: BlockMarketCategory[]) => {
+      setCategories(c);
+    };
+    BlockMarketManager.subscribe(onChange);
+    return () => {
+      BlockMarketManager.subscribe(onChange);
+    };
+  }, []);
+
   return (
-    <Card title="Placeholder" style={{ border: 'none' }}>
-      <div>Placeholder v1</div>
+    <Card style={{ border: 'none' }}>
+      <Tabs tabPosition="top" size="large">
+        {filterCategories.map((category, index) => {
+          return (
+            <Tabs.TabPane
+              style={{
+                padding: 0,
+                overflow: 'auto',
+                height: 500,
+              }}
+              key={category.title}
+              title={(
+                <div
+                  style={{
+                    paddingTop: index === 0 ? 5 : undefined,
+                    paddingBottom: 10,
+                  }}
+                >
+                  {category.title}
+                </div>
+              )}
+            >
+              <BlockPanelItem category={category} />
+            </Tabs.TabPane>
+          );
+        })}
+      </Tabs>
     </Card>
   );
 };
+
+const BlockPanelItem: React.FC<{
+  category: BlockMarketCategory;
+}> = React.memo((props) => {
+  return (
+    <Tabs tabPosition='left'>
+      {props.category.blocks.map((block, index) => {
+        return (
+          <Tabs.TabPane
+            style={{ padding: 0, height: 500 }}
+            key={block.title}
+            title={(
+              <Stack alignment='center' spacing='extraTight'>
+                <div className={styles.blockItem}>{block.title}</div>
+                {block.description && <Help title={block.description} />}
+              </Stack>
+            )}
+          >
+            <div
+              className='small-scrollbar'
+              style={{
+                maxHeight: '100%',
+                overflow: 'auto',
+                paddingRight: 10,
+                overflowX: 'hidden',
+                padding: '24px 48px 24px 24px',
+              }}
+            >
+              {block.component && <block.component />}
+            </div>
+          </Tabs.TabPane>
+        );
+      })}
+    </Tabs>
+  );
+});
