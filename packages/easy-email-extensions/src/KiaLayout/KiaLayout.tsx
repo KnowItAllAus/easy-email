@@ -8,6 +8,7 @@ import { BlockLayer, BlockLayerProps } from '../BlockLayer';
 import { InteractivePrompt } from '../InteractivePrompt';
 import styles from './index.module.scss';
 import enUS from '@arco-design/web-react/es/locale/en-US';
+import { LeftPanel } from './LeftPanel';
 
 export const KiaLayout: React.FC<
   {
@@ -46,9 +47,7 @@ export const KiaLayout: React.FC<
                 overflowX: 'hidden',
               }}
             >
-              <Card title="Placeholder" style={{ border: 'none' }}>
-                <div>Placeholder</div>
-              </Card>
+              <LeftPanel />
             </Card.Grid>
           </Card>
         </Layout.Sider>
@@ -85,7 +84,7 @@ export const KiaLayout: React.FC<
                 </Tabs.TabPane>
               )}
               <Tabs.TabPane key="Layout" title="Layout">
-              <BlockLayer renderTitle={props.renderTitle} />
+                <BlockLayer renderTitle={props.renderTitle} />
               </Tabs.TabPane>
             </Tabs>
           </Card>
