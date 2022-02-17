@@ -106,6 +106,7 @@ const BlockPanelItem: React.FC<{
                 paddingRight: 10,
                 overflowX: 'hidden',
                 padding: '24px 48px 24px 24px',
+                //display: 'none'
               }}
             >
               {block.component && <block.component />}

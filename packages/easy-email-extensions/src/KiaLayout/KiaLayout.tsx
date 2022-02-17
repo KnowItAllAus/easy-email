@@ -1,4 +1,3 @@
-import { ShortcutToolbar } from '../ShortcutToolbar';
 import { Card, ConfigProvider, Layout, Tabs } from '@arco-design/web-react';
 import { useEditorProps } from 'easy-email-editor';
 import React from 'react';
@@ -15,8 +14,11 @@ export const KiaLayout: React.FC<
     showSourceCode?: boolean;
   } & BlockLayerProps
 > = (props) => {
+  const INITIAL_WIDTH = 500;
+  const MAX_WIDTH = 600;
   const { height: containerHeight } = useEditorProps();
   const { showSourceCode = true } = props;
+
   return (
     <ConfigProvider locale={enUS}>
       <Layout
@@ -30,7 +32,13 @@ export const KiaLayout: React.FC<
       >
         <Layout.Sider
           resizeDirections={['right']}
-          style={{ minWidth: 300, maxWidth: 360, width: 360, paddingRight: 0 }}
+          style={{
+            minWidth: 300,
+            maxWidth: MAX_WIDTH,
+            width: INITIAL_WIDTH,
+            paddingRight: 0,
+            zIndex: '1',
+          }}
         >
           <Card bodyStyle={{ padding: 0 }} style={{ border: 'none' }}>
             <Card.Grid
