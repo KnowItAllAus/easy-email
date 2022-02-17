@@ -51,7 +51,7 @@ export const LeftPanel = () => {
                 ) : (
                   <>
                     <TabTitle title={category.title} index={index} />
-                    <ShortcutToolbar />
+                    <ShortcutToolbar showMore={false} />
                   </>
                 )
               }

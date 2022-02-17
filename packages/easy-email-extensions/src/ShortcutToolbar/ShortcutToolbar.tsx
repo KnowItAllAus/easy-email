@@ -3,18 +3,18 @@ import { IconFont, Stack, BlockAvatarWrapper } from 'easy-email-editor';
 import React, { useRef } from 'react';
 import { BlocksPanel } from './components/BlocksPanel';
 
-export function ShortcutToolbar() {
+export function ShortcutToolbar({ showMore = true }: { showMore?: boolean }) {
   const blocksPanelRef = useRef<HTMLDivElement>(null);
   return (
-    <Stack vertical alignment='center' distribution='center'>
+    <Stack vertical alignment="center" distribution="center">
       <BlocksPanel>
         <div ref={blocksPanelRef} />
       </BlocksPanel>
 
       <BlockAvatarWrapper type={BasicType.TEXT}>
         <IconFont
-          title='Text'
-          iconName='icon-text-rounded'
+          title="Text"
+          iconName="icon-text-rounded"
           style={{
             fontSize: 18,
             textAlign: 'center',
@@ -25,8 +25,8 @@ export function ShortcutToolbar() {
       </BlockAvatarWrapper>
       <BlockAvatarWrapper type={BasicType.IMAGE}>
         <IconFont
-          title='Image'
-          iconName='icon-img'
+          title="Image"
+          iconName="icon-img"
           style={{
             fontSize: 20,
             textAlign: 'center',
@@ -37,8 +37,8 @@ export function ShortcutToolbar() {
       </BlockAvatarWrapper>
       <BlockAvatarWrapper type={BasicType.BUTTON}>
         <IconFont
-          title='Button'
-          iconName='icon-button'
+          title="Button"
+          iconName="icon-button"
           style={{
             fontSize: 22,
             textAlign: 'center',
@@ -79,8 +79,8 @@ export function ShortcutToolbar() {
         type={BasicType.SECTION}
       >
         <IconFont
-          title='Section'
-          iconName='icon-section'
+          title="Section"
+          iconName="icon-section"
           style={{
             fontSize: 22,
             textAlign: 'center',
@@ -89,22 +89,25 @@ export function ShortcutToolbar() {
           }}
         />
       </BlockAvatarWrapper>
-
-      <IconFont
-        onClick={() => blocksPanelRef.current?.click()}
-        iconName='icon-more'
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 30,
-          height: 30,
-          borderRadius: '50%',
-          color: 'var(--color-text-2)',
-          boxShadow: '0 0 12px -3px var(--color-text-2)',
-          fontSize: 18,
-        }}
-      />
+      {showMore ? (
+        <IconFont
+          onClick={() => blocksPanelRef.current?.click()}
+          iconName="icon-more"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 30,
+            height: 30,
+            borderRadius: '50%',
+            color: 'var(--color-text-2)',
+            boxShadow: '0 0 12px -3px var(--color-text-2)',
+            fontSize: 18,
+          }}
+        />
+      ) : (
+        <></>
+      )}
     </Stack>
   );
 }
