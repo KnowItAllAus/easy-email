@@ -1,8 +1,9 @@
-import { BasicType } from '@core';
 import React from 'react';
+import { BasicType } from '@core';
 import { ButtonDraggable } from './ButtonDraggable';
 import { HeroDraggable } from './HeroDraggable';
 import { ImageDraggable } from './ImageDraggable';
+import { NavbarDraggable } from './NavbarDraggable';
 import { TextDraggable } from './TextDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
@@ -23,6 +24,8 @@ export const BlockMaskWrapperFactory = ({
       return <ButtonDraggable>{children}</ButtonDraggable>;
     case BasicType.HERO:
       return <HeroDraggable>{children}</HeroDraggable>;
+    case BasicType.NAVBAR:
+      return <NavbarDraggable>{children}</NavbarDraggable>;
   }
 
   return <><hr />{children}</>;
