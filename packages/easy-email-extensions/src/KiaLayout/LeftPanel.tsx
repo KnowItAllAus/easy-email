@@ -3,12 +3,15 @@ import { Card, Tabs } from '@arco-design/web-react';
 import {
   BlockMarketCategory,
   BlockMarketManager,
+  BlockMaskWrapper,
   ShortcutToolbar,
 } from '@extensions';
 import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { Stack } from 'easy-email-editor';
 import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import styles from './index.module.scss';
+import { BasicType } from 'easy-email-core';
+import { BlockMaskWrapperFactory } from './BlockMaskWrapperFactory';
 
 BlockMarketManager.addCategories(defaultCategories);
 
@@ -92,10 +95,12 @@ const BlockPanelItem: React.FC<{
             style={{ padding: 0, height: 500 }}
             key={block.title}
             title={(
-              <Stack alignment="center" spacing="extraTight">
-                <div className={styles.blockItem}>{block.title}</div>
-                {block.description && <Help title={block.description} />}
-              </Stack>
+              <BlockMaskWrapperFactory type={block.type as BasicType}>
+                <Stack alignment="center" spacing="extraTight">
+                  <div className={styles.blockItem}>{block.title} </div>
+                  {block.description && <Help title={block.description} />}
+                </Stack>
+              </BlockMaskWrapperFactory>
             )}
           >
             <div
@@ -106,7 +111,7 @@ const BlockPanelItem: React.FC<{
                 paddingRight: 10,
                 overflowX: 'hidden',
                 padding: '24px 48px 24px 24px',
-                //display: 'none'
+                display: 'none'
               }}
             >
               {block.component && <block.component />}

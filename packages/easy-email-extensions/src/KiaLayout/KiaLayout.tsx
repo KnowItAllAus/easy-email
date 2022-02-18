@@ -14,8 +14,8 @@ export const KiaLayout: React.FC<
     showSourceCode?: boolean;
   } & BlockLayerProps
 > = (props) => {
-  const INITIAL_WIDTH = 500;
-  const MAX_WIDTH = 600;
+  const INITIAL_WIDTH = 280;
+  const MAX_WIDTH = 280;
   const { height: containerHeight } = useEditorProps();
   const { showSourceCode = true } = props;
 
