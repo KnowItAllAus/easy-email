@@ -33,7 +33,7 @@ export const LeftPanel = () => {
   }, []);
 
   return (
-    <Card style={{ border: 'none' }}>
+    <Card style={{ border: 'none' }} className="left-hand-nav">
       <Tabs tabPosition="left" size="mini">
         {filterCategories.map((category, index) => (
           <Tabs.TabPane
