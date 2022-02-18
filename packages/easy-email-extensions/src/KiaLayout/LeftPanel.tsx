@@ -10,7 +10,7 @@ import { Stack } from 'easy-email-editor';
 import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import styles from './index.module.scss';
 import { BasicType } from 'easy-email-core';
-import { BlockMaskWrapperFactory } from './draggables/BlockMaskWrapperFactory';
+import { BlockMaskWrapperFactory } from './draggables/DraggableFactory';
 
 BlockMarketManager.addCategories(defaultCategories);
 

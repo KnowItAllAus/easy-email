@@ -1,6 +1,6 @@
 import { BasicType, IButton, RecursivePartial } from '@core';
-import { BlockMaskWrapper } from '@extensions';
 import React from 'react';
+import { DraggableWrapper } from './DraggableWrapper';
 
 interface IButtonDraggableProps {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export const ButtonDraggable = ({ children }: IButtonDraggableProps) => {
   };
 
   return (
-    <BlockMaskWrapper
+    <DraggableWrapper
       type={BasicType.BUTTON}
       payload={
         {
@@ -43,6 +43,6 @@ export const ButtonDraggable = ({ children }: IButtonDraggableProps) => {
       }
     >
       {children}
-    </BlockMaskWrapper>
+    </DraggableWrapper>
   );
 };

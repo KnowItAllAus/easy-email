@@ -1,7 +1,7 @@
 import { BasicType } from '@core';
-import { BlockMaskWrapper } from '@extensions';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
 import React from 'react';
+import { DraggableWrapper } from './DraggableWrapper';
 
 interface IHeroDraggableProps {
   children: React.ReactNode;
@@ -86,8 +86,8 @@ export const HeroDraggable = ({ children }: IHeroDraggableProps) => {
   };
 
   return (
-    <BlockMaskWrapper type={BasicType.HERO} payload={hero.payload}>
+    <DraggableWrapper type={BasicType.HERO} payload={hero.payload}>
       {children}
-    </BlockMaskWrapper>
+    </DraggableWrapper>
   );
 };

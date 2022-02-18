@@ -1,6 +1,6 @@
-import { BasicType } from '@core';
-import { BlockMaskWrapper } from '@extensions';
 import React from 'react';
+import { BasicType } from '@core';
+import { DraggableWrapper } from './DraggableWrapper';
 
 interface ITextDraggableProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface ITextDraggableProps {
 
 export const TextDraggable = ({ children }: ITextDraggableProps) => {
   return (
-    <BlockMaskWrapper
+    <DraggableWrapper
       type={BasicType.TEXT}
       payload={{
         attributes: {
@@ -23,6 +23,6 @@ export const TextDraggable = ({ children }: ITextDraggableProps) => {
       }}
     >
       {children}
-    </BlockMaskWrapper>
+    </DraggableWrapper>
   );
 };

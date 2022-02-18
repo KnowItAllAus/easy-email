@@ -25,5 +25,5 @@ export const BlockMaskWrapperFactory = ({
       return <HeroDraggable>{children}</HeroDraggable>;
   }
 
-  return <>{children}</>;
+  return <><hr />{children}</>;
 };
