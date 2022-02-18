@@ -1,6 +1,7 @@
 import { BasicType } from '@core';
 import React from 'react';
 import { ButtonDraggable } from './ButtonDraggable';
+import { HeroDraggable } from './HeroDraggable';
 import { ImageDraggable } from './ImageDraggable';
 import { TextDraggable } from './TextDraggable';
 
@@ -20,6 +21,8 @@ export const BlockMaskWrapperFactory = ({
       return <ImageDraggable>{children}</ImageDraggable>;
     case BasicType.BUTTON:
       return <ButtonDraggable>{children}</ButtonDraggable>;
+    case BasicType.HERO:
+      return <HeroDraggable>{children}</HeroDraggable>;
   }
 
   return <>{children}</>;
