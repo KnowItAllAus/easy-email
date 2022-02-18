@@ -1,4 +1,4 @@
-import { IconFont, BlockAvatarWrapper } from 'easy-email-editor';
+import { BlockAvatarWrapper } from 'easy-email-editor';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { BlockType } from 'easy-email-core';
 import styles from './draggable.module.scss';
@@ -43,16 +43,15 @@ export const DraggableWrapper: React.FC<{
   }, []);
 
   return (
-    <div style={{ position: 'relative', marginBottom: '20px' }}>
+    <div style={{
+      marginBottom: '5px'
+      }}
+    >
 
        <div
         className={styles.wrapper}
         style={{
-          position: 'absolute',
           height: '100%',
-          transform: 'translate(90px)',
-          top: 0,
-          right: 0,
         }}
        >
         <BlockAvatarWrapper type={type} payload={payload}>

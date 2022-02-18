@@ -1,4 +1,4 @@
-import { BasicType, IDivider, RecursivePartial } from '@core';
+import { BasicType } from '@core';
 import React from 'react';
 import { DraggableWrapper } from './DraggableWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
