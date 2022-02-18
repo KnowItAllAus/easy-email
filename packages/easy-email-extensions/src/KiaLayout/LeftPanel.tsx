@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Card, Tabs } from '@arco-design/web-react';
 import {
   BlockMarketCategory,
-  BlockMarketManager,
-  ShortcutToolbar,
+  BlockMarketManager
 } from '@extensions';
 import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { Stack } from 'easy-email-editor';
@@ -11,6 +10,7 @@ import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/pre
 import styles from './index.module.scss';
 import { BasicType } from 'easy-email-core';
 import { BlockMaskWrapperFactory } from './draggables/DraggableFactory';
+import { ShortcutToolbar } from './ShortcutToolbar';
 
 BlockMarketManager.addCategories(defaultCategories);
 
@@ -53,7 +53,7 @@ export const LeftPanel = () => {
                 ) : (
                   <>
                     <TabTitle title={category.title} index={index} />
-                    <ShortcutToolbar showMore={false} />
+                    <ShortcutToolbar />
                   </>
                 )
               }
