@@ -1,5 +1,6 @@
 import { BasicType } from '@core';
 import React from 'react';
+import { ImageDraggable } from './ImageDraggable';
 import { TextDraggable } from './TextDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
@@ -13,11 +14,9 @@ export const BlockMaskWrapperFactory = ({
 }: IBlockMaskWrapperFactoryProps) => {
   switch (type) {
     case BasicType.TEXT:
-      return (
-        <TextDraggable>
-        {children}
-        </TextDraggable>
-      );
+      return <TextDraggable>{children}</TextDraggable>;
+      case BasicType.IMAGE:
+        return <ImageDraggable>{children}</ImageDraggable>;
   }
 
   return <>{children}</>;
