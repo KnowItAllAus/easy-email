@@ -3,8 +3,14 @@
     .arco-layout-sider-children {
       overflow-x: hidden;
     }
-    .left-hand-nav .arco-tabs-header-ink {
-      height: 36px !important;
+    .left-hand-nav {
+      .arco-tabs-header-ink {
+        height: 36px !important;
+      }
+      .arco-tabs-header-title-active {
+        color: inherit;
+        font-weight: inherit;
+      }
     }
   }
 }
