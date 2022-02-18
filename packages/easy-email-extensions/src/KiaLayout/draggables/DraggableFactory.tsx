@@ -5,6 +5,7 @@ import { HeroDraggable } from './HeroDraggable';
 import { ImageDraggable } from './ImageDraggable';
 import { NavbarDraggable } from './NavbarDraggable';
 import { TextDraggable } from './TextDraggable';
+import { SpacerDraggable } from './SpacerDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -26,6 +27,8 @@ export const BlockMaskWrapperFactory = ({
       return <HeroDraggable>{children}</HeroDraggable>;
     case BasicType.NAVBAR:
       return <NavbarDraggable>{children}</NavbarDraggable>;
+    case BasicType.SPACER:
+      return <SpacerDraggable>{children}</SpacerDraggable>;
   }
 
   return <><hr />{children}</>;
