@@ -3,7 +3,6 @@ import { Card, Tabs } from '@arco-design/web-react';
 import {
   BlockMarketCategory,
   BlockMarketManager,
-  BlockMaskWrapper,
   ShortcutToolbar,
 } from '@extensions';
 import { Help } from '@extensions/AttributePanel/components/UI/Help';
@@ -11,7 +10,7 @@ import { Stack } from 'easy-email-editor';
 import { defaultCategories } from '../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import styles from './index.module.scss';
 import { BasicType } from 'easy-email-core';
-import { BlockMaskWrapperFactory } from './BlockMaskWrapperFactory';
+import { BlockMaskWrapperFactory } from './draggables/BlockMaskWrapperFactory';
 
 BlockMarketManager.addCategories(defaultCategories);
 
