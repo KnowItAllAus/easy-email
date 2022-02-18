@@ -39,7 +39,7 @@ export const LeftPanel = () => {
           <Tabs.TabPane
             style={{
               padding: 0,
-              overflow: 'auto',
+              overflow: 'none',
               height: 500,
             }}
             key={category.title}
