@@ -14,8 +14,9 @@ export const KiaLayout: React.FC<
     showSourceCode?: boolean;
   } & BlockLayerProps
 > = (props) => {
-  const INITIAL_WIDTH = 280;
-  const MAX_WIDTH = 280;
+  const INITIAL_WIDTH = 240;
+  const MIN_WIDTH = 240;
+  const MAX_WIDTH = 240;
   const { height: containerHeight } = useEditorProps();
   const { showSourceCode = true } = props;
 
@@ -33,7 +34,7 @@ export const KiaLayout: React.FC<
         <Layout.Sider
           resizeDirections={['right']}
           style={{
-            minWidth: 300,
+            minWidth: MIN_WIDTH,
             maxWidth: MAX_WIDTH,
             width: INITIAL_WIDTH,
             paddingRight: 0,

@@ -16,7 +16,7 @@ interface IBlockMaskWrapperFactoryProps {
   children: React.ReactNode;
 }
 
-export const BlockMaskWrapperFactory = ({
+export const DraggableFactory = ({
   type,
   children,
 }: IBlockMaskWrapperFactoryProps) => {
