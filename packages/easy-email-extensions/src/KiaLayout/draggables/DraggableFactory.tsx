@@ -8,6 +8,7 @@ import { TextDraggable } from './TextDraggable';
 import { SpacerDraggable } from './SpacerDraggable';
 import { DividerDraggable } from './DividerDraggable';
 import { AccordianDraggable } from './AccordianDraggable';
+import { CarouselDraggable } from './CarouselDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -35,6 +36,8 @@ export const BlockMaskWrapperFactory = ({
       return <DividerDraggable>{children}</DividerDraggable>;
     case BasicType.ACCORDION:
       return <AccordianDraggable>{children}</AccordianDraggable>;
+    case BasicType.CAROUSEL:
+      return <CarouselDraggable>{children}</CarouselDraggable>;
   }
 
   return <><hr />{children}</>;
