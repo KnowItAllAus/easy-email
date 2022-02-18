@@ -6,6 +6,7 @@ import { ImageDraggable } from './ImageDraggable';
 import { NavbarDraggable } from './NavbarDraggable';
 import { TextDraggable } from './TextDraggable';
 import { SpacerDraggable } from './SpacerDraggable';
+import { DividerDraggable } from './DividerDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -29,6 +30,8 @@ export const BlockMaskWrapperFactory = ({
       return <NavbarDraggable>{children}</NavbarDraggable>;
     case BasicType.SPACER:
       return <SpacerDraggable>{children}</SpacerDraggable>;
+    case BasicType.DIVIDER:
+      return <DividerDraggable>{children}</DividerDraggable>;
   }
 
   return <><hr />{children}</>;
