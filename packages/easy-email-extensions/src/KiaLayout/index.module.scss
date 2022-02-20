@@ -1,0 +1,52 @@
+.KiaLayout {
+  :global {
+    .arco-layout-sider-children {
+      overflow-x: hidden;
+    }
+    .left-hand-nav {
+      .arco-tabs-header-ink {
+        height: 36px !important;
+      }
+      .arco-tabs-header-title-active {
+        color: inherit;
+        font-weight: inherit;
+      }
+    }
+  }
+}
+
+.rightSide {
+  :global {
+    .arco-tabs-header {
+      height: 48px;
+    }
+  }
+}
+
+.customScrollBar {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  :global {
+    .arco-tabs-content {
+      padding: 0;
+    }
+  }
+}
+
+.blockItem {
+  text-align: center;
+  padding: 3px 12px;
+  border-radius: 15px;
+  min-width: 60px;
+}

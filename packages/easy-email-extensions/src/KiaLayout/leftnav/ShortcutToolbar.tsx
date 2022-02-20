@@ -1,7 +1,7 @@
+import { BlocksPanel } from '@extensions/ShortcutToolbar/components/BlocksPanel';
 import { BasicType } from 'easy-email-core';
 import { IconFont, Stack, BlockAvatarWrapper } from 'easy-email-editor';
 import React, { useRef } from 'react';
-import { BlocksPanel } from './components/BlocksPanel';
 
 export function ShortcutToolbar() {
   const blocksPanelRef = useRef<HTMLDivElement>(null);
@@ -18,7 +18,7 @@ export function ShortcutToolbar() {
           style={{
             fontSize: 18,
             textAlign: 'center',
-            cursor: 'move',
+            cursor: 'grab',
             color: '#6ED787',
           }}
         />
@@ -30,7 +30,7 @@ export function ShortcutToolbar() {
           style={{
             fontSize: 20,
             textAlign: 'center',
-            cursor: 'move',
+            cursor: 'grab',
             color: '#FAD061',
           }}
         />
@@ -42,7 +42,7 @@ export function ShortcutToolbar() {
           style={{
             fontSize: 22,
             textAlign: 'center',
-            cursor: 'move',
+            cursor: 'grab',
             color: '#59BEF8',
           }}
         />
@@ -84,26 +84,12 @@ export function ShortcutToolbar() {
           style={{
             fontSize: 22,
             textAlign: 'center',
-            cursor: 'move',
+            cursor: 'grab',
             color: '#e5afe5',
           }}
         />
       </BlockAvatarWrapper>
-        <IconFont
-          onClick={() => blocksPanelRef.current?.click()}
-          iconName="icon-more"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 30,
-            height: 30,
-            borderRadius: '50%',
-            color: 'var(--color-text-2)',
-            boxShadow: '0 0 12px -3px var(--color-text-2)',
-            fontSize: 18,
-          }}
-        />
+
     </Stack>
   );
 }

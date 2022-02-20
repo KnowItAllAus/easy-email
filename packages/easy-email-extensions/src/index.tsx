@@ -6,6 +6,7 @@ export * from './ShortcutToolbar';
 export * from './SourceCodePanel';
 export * from './InteractivePrompt';
 export * from './SimpleLayout';
+export * from './KiaLayout';
 
 export * from './components/Form';
 
