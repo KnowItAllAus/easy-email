@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicType } from '@core';
+import { BasicType } from 'easy-email-core';
 import { ButtonDraggable } from './ButtonDraggable';
 import { HeroDraggable } from './HeroDraggable';
 import { ImageDraggable } from './ImageDraggable';

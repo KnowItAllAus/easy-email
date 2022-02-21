@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicType } from '@core';
+import { BasicType } from 'easy-email-core';
 import { DraggableWrapper } from './DraggableWrapper';
 
 interface ITextDraggableProps {
