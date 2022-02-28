@@ -1,4 +1,4 @@
-import { BasicType, IDivider, RecursivePartial } from '@core';
+import { BasicType, IDivider, RecursivePartial } from 'easy-email-core';
 import React from 'react';
 import { DraggableWrapper } from './DraggableWrapper';
 
