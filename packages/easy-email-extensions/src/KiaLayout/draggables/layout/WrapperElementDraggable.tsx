@@ -1,9 +1,9 @@
 import { BasicType } from 'easy-email-core';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
-import Placeholder from '../assets/Placeholder.svg';
+import { DraggableWrapper } from '../DraggableWrapper';
+import Placeholder from '../../assets/Placeholder.svg';
 
-interface IWrapperDraggableProps {
+interface IWrapperElementDraggableProps {
   children: React.ReactNode;
 }
 
@@ -153,7 +153,7 @@ const wrapper =
   },
 };
 
-export const WrapperDraggable = ({ children }: IWrapperDraggableProps) => {
+export const WrapperElementDraggable = ({ children }: IWrapperElementDraggableProps) => {
 
   return (
     <DraggableWrapper

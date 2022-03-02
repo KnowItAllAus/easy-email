@@ -1,6 +1,6 @@
 import { BasicType } from 'easy-email-core';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
 
 interface INavbarDraggableProps {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import { BasicType, IButton, RecursivePartial } from 'easy-email-core';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
 
 interface IButtonDraggableProps {
   children: React.ReactNode;

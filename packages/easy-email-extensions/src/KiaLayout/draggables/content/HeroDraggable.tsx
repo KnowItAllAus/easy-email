@@ -1,7 +1,7 @@
 import { BasicType } from 'easy-email-core';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
 
 interface IHeroDraggableProps {
   children: React.ReactNode;

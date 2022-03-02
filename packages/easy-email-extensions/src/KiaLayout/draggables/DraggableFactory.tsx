@@ -1,16 +1,16 @@
 import React from 'react';
 import { BasicType } from 'easy-email-core';
-import { ButtonDraggable } from './ButtonDraggable';
-import { HeroDraggable } from './HeroDraggable';
-import { ImageDraggable } from './ImageDraggable';
-import { NavbarDraggable } from './NavbarDraggable';
-import { TextDraggable } from './TextDraggable';
-import { SpacerDraggable } from './SpacerDraggable';
-import { DividerDraggable } from './DividerDraggable';
-import { AccordianDraggable } from './AccordianDraggable';
-import { CarouselDraggable } from './CarouselDraggable';
-import { SocialDraggable } from './SocialDraggable';
-import { WrapperDraggable } from './WrapperDraggable';
+import { ButtonDraggable } from './content/ButtonDraggable';
+import { HeroDraggable } from './content/HeroDraggable';
+import { ImageDraggable } from './content/ImageDraggable';
+import { NavbarDraggable } from './content/NavbarDraggable';
+import { TextDraggable } from './content/TextDraggable';
+import { SpacerDraggable } from './content/SpacerDraggable';
+import { DividerDraggable } from './content/DividerDraggable';
+import { AccordianDraggable } from './content/AccordianDraggable';
+import { CarouselDraggable } from './content/CarouselDraggable';
+import { SocialDraggable } from './content/SocialDraggable';
+import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -43,7 +43,7 @@ export const DraggableFactory = ({
     case BasicType.SOCIAL:
       return <SocialDraggable>{children}</SocialDraggable>;
     case BasicType.WRAPPER:
-      return <WrapperDraggable>{children}</WrapperDraggable>;
+      return <WrapperElementDraggable>{children}</WrapperElementDraggable>;
   }
 
   return <>{children}</>;
