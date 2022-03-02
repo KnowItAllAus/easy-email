@@ -2,6 +2,7 @@ import { BasicType } from 'easy-email-core';
 import React from 'react';
 import { DraggableWrapper } from './DraggableWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
+import Placeholder from '../assets/Placeholder.svg';
 
 interface ICarouselDraggableProps {
   children: React.ReactNode;
@@ -15,15 +16,7 @@ const carousel =
         value: {
           images: [
             {
-              src: getImg('IMAGE_15'),
-              target: '_blank',
-            },
-            {
-              src: getImg('IMAGE_16'),
-              target: '_blank',
-            },
-            {
-              src: getImg('IMAGE_17'),
+              src: Placeholder,
               target: '_blank',
             },
           ],
