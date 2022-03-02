@@ -18,7 +18,7 @@ export const LeftPanel = () => {
 
   const filterCategories = useMemo(() => {
     return categories.filter(
-      (item) => item.blocks.length > 0 && item.name !== 'LAYOUT'
+      (item) => item.blocks.length > 0
     );
   }, [categories]);
 

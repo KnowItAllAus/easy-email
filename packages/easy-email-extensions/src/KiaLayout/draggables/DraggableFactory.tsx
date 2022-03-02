@@ -10,6 +10,7 @@ import { DividerDraggable } from './DividerDraggable';
 import { AccordianDraggable } from './AccordianDraggable';
 import { CarouselDraggable } from './CarouselDraggable';
 import { SocialDraggable } from './SocialDraggable';
+import { WrapperDraggable } from './WrapperDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -40,7 +41,9 @@ export const DraggableFactory = ({
     case BasicType.CAROUSEL:
       return <CarouselDraggable>{children}</CarouselDraggable>;
     case BasicType.SOCIAL:
-       return <SocialDraggable>{children}</SocialDraggable>;
+      return <SocialDraggable>{children}</SocialDraggable>;
+    case BasicType.WRAPPER:
+      return <WrapperDraggable>{children}</WrapperDraggable>;
   }
 
   return <>{children}</>;

@@ -9,7 +9,6 @@ interface ICarouselDraggableProps {
 
 const carousel =
   {
-    thumbnail: getImg('IMAGE_14'),
     payload: {
       type: 'carousel',
       data: {
