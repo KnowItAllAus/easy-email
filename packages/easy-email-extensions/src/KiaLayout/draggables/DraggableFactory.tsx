@@ -11,6 +11,7 @@ import { AccordianDraggable } from './content/AccordianDraggable';
 import { CarouselDraggable } from './content/CarouselDraggable';
 import { SocialDraggable } from './content/SocialDraggable';
 import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
+import { SectionDraggable } from './layout/SectionDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -44,6 +45,8 @@ export const DraggableFactory = ({
       return <SocialDraggable>{children}</SocialDraggable>;
     case BasicType.WRAPPER:
       return <WrapperElementDraggable>{children}</WrapperElementDraggable>;
+    case BasicType.SECTION:
+      return <SectionDraggable>{children}</SectionDraggable>;
   }
 
   return <>{children}</>;
