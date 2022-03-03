@@ -11,6 +11,10 @@
         color: inherit;
         font-weight: inherit;
       }
+      .arco-tabs-header-nav-line.arco-tabs-header-nav-vertical
+        .arco-tabs-header-title {
+        padding: 0px;
+      }
     }
   }
 }

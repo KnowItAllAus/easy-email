@@ -3,7 +3,6 @@ import { Tabs } from '@arco-design/web-react';
 import { BlockMarketCategory } from '@extensions';
 import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { BasicType } from 'easy-email-core';
-import { Stack } from 'easy-email-editor';
 import { DraggableFactory } from '../draggables/DraggableFactory';
 import styles from '../index.module.scss';
 
@@ -22,7 +21,7 @@ export const BlockPanelItem: React.FC<{
                 <div style={{
                               width: '100px',
                               display:'flex',
-                              marginLeft: '-30px' }}
+                              marginLeft: '0px' }}
                 >
                   <div className={styles.blockItem} style={{ flexGrow: 1 }}>{block.title} </div>
                   {block.description && <Help title={block.description} />}
