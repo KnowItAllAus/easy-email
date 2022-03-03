@@ -3,11 +3,11 @@ import React from 'react';
 import { DraggableWrapper } from '../DraggableWrapper';
 import Placeholder from '../../assets/Placeholder.svg';
 
-interface IGroupDraggableProps {
+interface IColumnDraggableProps {
   children: React.ReactNode;
 }
 
-const group =
+const column =
 {
   payload: {
     type: 'group',
@@ -77,9 +77,9 @@ const group =
   },
 };
 
-export const GroupDraggable = ({ children }: IGroupDraggableProps) => {
+export const GroupDraggable = ({ children }: IColumnDraggableProps) => {
   return (
-    <DraggableWrapper type={BasicType.GROUP} payload={group.payload}>
+    <DraggableWrapper type={BasicType.GROUP} payload={column.payload}>
       {children}
     </DraggableWrapper>
   );

@@ -13,6 +13,7 @@ import { SocialDraggable } from './content/SocialDraggable';
 import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
 import { SectionDraggable } from './layout/SectionDraggable';
 import { GroupDraggable } from './layout/GroupDraggable';
+import { ColumnDraggable } from './layout/ColumnDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -50,6 +51,8 @@ export const DraggableFactory = ({
       return <SectionDraggable>{children}</SectionDraggable>;
     case BasicType.GROUP:
       return <GroupDraggable>{children}</GroupDraggable>;
+    case BasicType.COLUMN:
+      return <ColumnDraggable>{children}</ColumnDraggable>;
   }
 
   return <>{children}</>;
