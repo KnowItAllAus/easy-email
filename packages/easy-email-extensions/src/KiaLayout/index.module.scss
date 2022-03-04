@@ -11,6 +11,10 @@
         color: inherit;
         font-weight: inherit;
       }
+      .arco-tabs-header-nav-line.arco-tabs-header-nav-vertical
+        .arco-tabs-header-title {
+        padding: 0px;
+      }
     }
   }
 }
@@ -44,9 +48,22 @@
   }
 }
 
+.blockItems {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blockItemWrapper {
+  width: 100px;
+  display: flex;
+  margin: 0.5em 0;
+  padding-right: 0.3em;
+  border-radius: 15px;
+}
+
 .blockItem {
   text-align: center;
   padding: 3px 12px;
-  border-radius: 15px;
   min-width: 60px;
 }

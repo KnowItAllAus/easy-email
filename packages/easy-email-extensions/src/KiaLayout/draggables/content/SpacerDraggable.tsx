@@ -1,6 +1,6 @@
 import { BasicType, ISpacer, RecursivePartial } from 'easy-email-core';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
 
 interface ISpacerDraggableProps {
   children: React.ReactNode;

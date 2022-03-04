@@ -1,6 +1,7 @@
 import { BasicType, IImage, RecursivePartial } from 'easy-email-core';
 import React from 'react';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
+import Placeholder from '../../assets/Placeholder.svg';
 
 interface IImageDraggableProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export const ImageDraggable = ({ children }: IImageDraggableProps) => {
         {
           attributes: {
             padding: '0px 0px 0px 0px',
+            src: Placeholder
           },
         } as RecursivePartial<IImage>
       }

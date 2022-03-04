@@ -1,5 +1,5 @@
 import { BlockAvatarWrapper } from 'easy-email-editor';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { BlockType } from 'easy-email-core';
 import styles from './draggable.module.scss';
 
@@ -10,12 +10,6 @@ export const DraggableWrapper: React.FC<{
   const ref = useRef<HTMLDivElement>(null);
   const dragRef = useRef<HTMLDivElement>(null);
   const { type, payload } = props;
-
-  const onMouseDown = useCallback(() => {
-    if (ref.current) {
-      ref.current.classList.add(styles.drag);
-    }
-  }, []);
 
   const onMaskMouseDown: React.MouseEventHandler<HTMLDivElement> = useCallback(
     (ev) => {
@@ -30,30 +24,18 @@ export const DraggableWrapper: React.FC<{
     []
   );
 
-  useEffect(() => {
-    const mouseup = () => {
-      if (ref.current) {
-        ref.current.classList.remove(styles.drag);
-      }
-    };
-    document.addEventListener('mouseup', mouseup);
-    return () => {
-      document.removeEventListener('mouseup', mouseup);
-    };
-  }, []);
-
   return (
-    <div style={{
-      marginBottom: '5px'
+    <div
+      style={{
+        marginBottom: '5px',
       }}
     >
-
-       <div
+      <div
         className={styles.wrapper}
         style={{
           height: '100%',
         }}
-       >
+      >
         <BlockAvatarWrapper type={type} payload={payload}>
           <div ref={ref} className={styles.mask} onMouseDown={onMaskMouseDown}>
             <div
@@ -61,13 +43,12 @@ export const DraggableWrapper: React.FC<{
               style={{
                 cursor: 'grab',
               }}
-              onMouseDown={onMouseDown}
             >
               {props.children}
             </div>
           </div>
         </BlockAvatarWrapper>
-       </div>
+      </div>
     </div>
   );
 };

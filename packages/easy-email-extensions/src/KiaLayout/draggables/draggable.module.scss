@@ -1,5 +1,4 @@
 .mask {
-  width: 270px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -7,8 +6,10 @@
   position: relative;
   transition: all 0.3s;
   pointer-events: auto;
+  padding-right: 1em;
+  border: 1px dashed transparent;
 }
-.drag {
-  background-color: rgba(0, 0, 0, 0.65);
-  margin-left: -20px;
+
+.mask:hover {
+  border: 1px dashed cornflowerblue;
 }

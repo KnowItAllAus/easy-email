@@ -7,8 +7,9 @@ export const TabTitle: React.FC<{ title: string; index: number }> = ({
   return (
     <div
       style={{
-        paddingTop: index === 0 ? 5 : undefined,
-        paddingBottom: 10,
+        paddingTop: index === 0 ? '0.5em' : undefined,
+        paddingBottom: '1em',
+        paddingLeft:'0.5em',
       }}
     >
       {title}

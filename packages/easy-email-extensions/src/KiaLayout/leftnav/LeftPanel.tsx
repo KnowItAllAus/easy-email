@@ -1,13 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Card, Tabs } from '@arco-design/web-react';
-import {
-  BlockMarketCategory,
-  BlockMarketManager
-} from '@extensions';
+import { BlockMarketCategory, BlockMarketManager } from '@extensions';
 import { defaultCategories } from '../../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import { ShortcutToolbar } from './ShortcutToolbar';
 import { TabTitle } from './TabTitle';
-import { BlockPanelItem } from './BlockPanelItem';
+import { BlockItemPanel } from './BlockItemPanel';
 
 BlockMarketManager.addCategories(defaultCategories);
 
@@ -17,9 +14,7 @@ export const LeftPanel = () => {
   );
 
   const filterCategories = useMemo(() => {
-    return categories.filter(
-      (item) => item.blocks.length > 0 && item.name !== 'LAYOUT'
-    );
+    return categories.filter((item) => item.blocks.length > 0);
   }, [categories]);
 
   useEffect(() => {
@@ -43,16 +38,18 @@ export const LeftPanel = () => {
               height: 500,
             }}
             key={category.title}
-            title={index < filterCategories.length - 1 ? (
-              <TabTitle title={category.title} index={index} />
-            ) : (
-              <>
+            title={
+              index < filterCategories.length - 1 ? (
                 <TabTitle title={category.title} index={index} />
-                <ShortcutToolbar />
-              </>
-            )}
+              ) : (
+                <>
+                  <TabTitle title={category.title} index={index} />
+                  <ShortcutToolbar />
+                </>
+              )
+            }
           >
-            <BlockPanelItem category={category} />
+            <BlockItemPanel category={category} />
           </Tabs.TabPane>
         ))}
       </Tabs>

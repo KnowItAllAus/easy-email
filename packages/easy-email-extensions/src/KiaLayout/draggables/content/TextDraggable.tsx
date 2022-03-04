@@ -1,6 +1,6 @@
 import React from 'react';
 import { BasicType } from 'easy-email-core';
-import { DraggableWrapper } from './DraggableWrapper';
+import { DraggableWrapper } from '../DraggableWrapper';
 
 interface ITextDraggableProps {
   children: React.ReactNode;
