@@ -35,8 +35,8 @@ export const LeftPanel = () => {
             style={{
               padding: 0,
               overflow: 'none',
-              height: 500
-                        }}
+              height: 500,
+            }}
             key={category.title}
             title={
               index < filterCategories.length - 1 ? (
