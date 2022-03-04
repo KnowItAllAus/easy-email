@@ -48,9 +48,22 @@
   }
 }
 
+.blockItems {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blockItemWrapper {
+  width: 100px;
+  display: flex;
+  margin: 0.5em 0;
+  padding-right: 0.3em;
+  border-radius: 15px;
+}
+
 .blockItem {
   text-align: center;
   padding: 3px 12px;
-  border-radius: 15px;
   min-width: 60px;
 }

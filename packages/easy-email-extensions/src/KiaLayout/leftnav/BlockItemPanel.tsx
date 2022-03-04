@@ -6,30 +6,17 @@ import { BasicType } from 'easy-email-core';
 import { DraggableFactory } from '../draggables/DraggableFactory';
 import styles from '../index.module.scss';
 
-export const BlockPanelItem: React.FC<{
+export const BlockItemPanel: React.FC<{
   category: BlockMarketCategory;
 }> = (props) => {
   return (
-    <div
-      style={{
-        width: '100px',
-        display: 'flex',
-        flexDirection: 'column',
-
-      }}
-    >
+    <div className={styles.blockItems}>
 
       {props.category.blocks.map((block, index) => {
         return (
           <DraggableFactory type={block.type as BasicType} key={index}>
             <div
-              style={{
-                width: '100px',
-                display: 'flex',
-                marginTop: '0.5em',
-                marginBottom: '0.5em',
-                paddingRight: '0.3em'
-              }}
+              className={styles.blockItemWrapper}
             >
               <div
                 className={styles.blockItem}
@@ -47,7 +34,7 @@ export const BlockPanelItem: React.FC<{
   );
 };
 
-export const BlockPanelItemTabbed: React.FC<{
+export const BlockItemPanelTabbed: React.FC<{
   category: BlockMarketCategory;
 }> = React.memo((props) => {
   return (

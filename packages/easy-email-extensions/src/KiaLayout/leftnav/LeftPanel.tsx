@@ -4,7 +4,7 @@ import { BlockMarketCategory, BlockMarketManager } from '@extensions';
 import { defaultCategories } from '../../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import { ShortcutToolbar } from './ShortcutToolbar';
 import { TabTitle } from './TabTitle';
-import { BlockPanelItem } from './BlockPanelItem';
+import { BlockItemPanel } from './BlockItemPanel';
 
 BlockMarketManager.addCategories(defaultCategories);
 
@@ -49,7 +49,7 @@ export const LeftPanel = () => {
               )
             }
           >
-            <BlockPanelItem category={category} />
+            <BlockItemPanel category={category} />
           </Tabs.TabPane>
         ))}
       </Tabs>
