@@ -107,13 +107,6 @@ export const defaultCategories = [
     name: 'LAYOUT',
     blocks: [
       {
-        type: BasicType.WRAPPER,
-        title: 'Wrapper',
-        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
-        `,
-        component: WrapperBlockItem,
-      },
-      {
         type: BasicType.SECTION,
         title: 'Section',
         description: (
@@ -129,14 +122,6 @@ export const defaultCategories = [
           </Stack>
         ),
         component: SectionBlockItem,
-      },
-      {
-        type: BasicType.GROUP,
-        title: 'Group',
-        description: `Group allows you to prevent columns from stacking on
-          mobile. To do so, wrap the columns inside a group
-          block, so they'll stay side by side on mobile.`,
-        component: GroupBlockItem,
       },
       {
         type: BasicType.COLUMN,
@@ -157,6 +142,21 @@ export const defaultCategories = [
           </Stack>
         ),
         component: ColumnBlockItem,
+      },
+      {
+        type: BasicType.WRAPPER,
+        title: 'Wrapper',
+        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
+        `,
+        component: WrapperBlockItem,
+      },
+      {
+        type: BasicType.GROUP,
+        title: 'Group',
+        description: `Group allows you to prevent columns from stacking on
+          mobile. To do so, wrap the columns inside a group
+          block, so they'll stay side by side on mobile.`,
+        component: GroupBlockItem,
       },
     ],
   },
