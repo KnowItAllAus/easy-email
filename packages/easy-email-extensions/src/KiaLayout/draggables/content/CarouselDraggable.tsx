@@ -19,13 +19,21 @@ const carousel =
               src: Placeholder,
               target: '_blank',
             },
+            {
+              src: Placeholder,
+              target: '_blank',
+            },
+            {
+              src: Placeholder,
+              target: '_blank',
+            },
           ],
         },
       },
       attributes: {
         align: 'center',
-        'left-icon': getImg('IMAGE_18'),
-        'right-icon': getImg('IMAGE_19'),
+        'left-icon': Placeholder,
+        'right-icon': Placeholder,
         'icon-width': '44px',
         thumbnails: 'visible',
       },
