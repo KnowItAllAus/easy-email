@@ -7,6 +7,65 @@ const noopBlock = () => null;
 
 export const defaultCategories: Array<BlockMarketCategory> = [
   {
+    title: 'Layout',
+    name: 'LAYOUT',
+    blocks: [
+      {
+        type: BasicType.SECTION,
+        title: 'Section',
+        description: (
+          <Stack vertical spacing="none">
+            <TextStyle>
+              Sections are intended to be used as rows within your email. They
+              will be used to structure the layout.
+            </TextStyle>
+            <TextStyle>
+              Sections cannot nest in sections. Columns can nest in sections;
+              all content must be in a column.
+            </TextStyle>
+          </Stack>
+        ),
+        component: noopBlock,
+      },
+      {
+        type: BasicType.COLUMN,
+        title: 'Column',
+        description: (
+          <Stack vertical spacing="none">
+            <TextStyle>
+              Columns enable you to horizontally organize the content within
+              your sections. They must be located under "Section" block in order
+              to be considered by the engine. To be responsive, columns are
+              expressed in terms of percentage.
+            </TextStyle>
+            <TextStyle>
+              Every single column has to contain something because they are
+              responsive containers, and will be vertically stacked on a mobile
+              view.
+            </TextStyle>
+          </Stack>
+        ),
+        component: noopBlock,
+      },
+      {
+        type: BasicType.WRAPPER,
+        title: 'Wrapper',
+        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
+        `,
+        component: noopBlock,
+      },
+
+      {
+        type: BasicType.GROUP,
+        title: 'Group',
+        description: `Group allows you to prevent columns from stacking on
+          mobile. To do so, wrap the columns inside a group
+          block, so they'll stay side by side on mobile.`,
+        component: noopBlock,
+      },
+    ],
+  },
+  {
     title: 'Content',
     name: 'CONTENT',
     blocks: [
@@ -86,65 +145,6 @@ export const defaultCategories: Array<BlockMarketCategory> = [
         title: 'Social',
         description: `Displays calls-to-action for various social networks with
         their associated logo.`,
-        component: noopBlock,
-      },
-    ],
-  },
-  {
-    title: 'Layout',
-    name: 'LAYOUT',
-    blocks: [
-      {
-        type: BasicType.SECTION,
-        title: 'Section',
-        description: (
-          <Stack vertical spacing="none">
-            <TextStyle>
-              Sections are intended to be used as rows within your email. They
-              will be used to structure the layout.
-            </TextStyle>
-            <TextStyle>
-              Sections cannot nest in sections. Columns can nest in sections;
-              all content must be in a column.
-            </TextStyle>
-          </Stack>
-        ),
-        component: noopBlock,
-      },
-      {
-        type: BasicType.COLUMN,
-        title: 'Column',
-        description: (
-          <Stack vertical spacing="none">
-            <TextStyle>
-              Columns enable you to horizontally organize the content within
-              your sections. They must be located under "Section" block in order
-              to be considered by the engine. To be responsive, columns are
-              expressed in terms of percentage.
-            </TextStyle>
-            <TextStyle>
-              Every single column has to contain something because they are
-              responsive containers, and will be vertically stacked on a mobile
-              view.
-            </TextStyle>
-          </Stack>
-        ),
-        component: noopBlock,
-      },
-      {
-        type: BasicType.WRAPPER,
-        title: 'Wrapper',
-        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
-        `,
-        component: noopBlock,
-      },
-
-      {
-        type: BasicType.GROUP,
-        title: 'Group',
-        description: `Group allows you to prevent columns from stacking on
-          mobile. To do so, wrap the columns inside a group
-          block, so they'll stay side by side on mobile.`,
         component: noopBlock,
       },
     ],
