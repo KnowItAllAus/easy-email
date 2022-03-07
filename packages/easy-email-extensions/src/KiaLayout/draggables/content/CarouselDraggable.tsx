@@ -1,7 +1,6 @@
 import { BasicType } from 'easy-email-core';
 import React from 'react';
 import { DraggableWrapper } from '../DraggableWrapper';
-import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
 import Placeholder from '../../assets/Placeholder.svg';
 
 interface ICarouselDraggableProps {
