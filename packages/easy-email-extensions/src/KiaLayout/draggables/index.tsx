@@ -1,18 +1,71 @@
 import React from 'react';
-import { BasicType } from 'easy-email-core';
+import { BasicType, IBlockData } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
-import { BlockMarketCategory } from '@extensions/ShortcutToolbar';
+import {
+  BlockMarketCategory,
+} from '@extensions/ShortcutToolbar';
 
 const noopBlock = () => null;
 
-export const defaultCategories: Array<BlockMarketCategory> = [
+export interface BlockMarketCategoryExtended extends BlockMarketCategory {
+  blocks: {
+    type: string;
+    heading?: string;
+    title: string;
+    indentTitle?: boolean;
+    description?: React.ReactNode;
+    thumbnail?: string;
+    payload?: IBlockData;
+    component: () => JSX.Element | null
+  }[];
+}
+
+export const defaultCategories: Array<BlockMarketCategoryExtended> = [
   {
     title: 'Layout',
     name: 'LAYOUT',
     blocks: [
       {
         type: BasicType.SECTION,
-        title: 'Section',
+        heading: 'Section',
+        title : '2 cols',
+        indentTitle: true,
+        description: (
+          <Stack vertical spacing="none">
+            <TextStyle>
+              Sections are intended to be used as rows within your email. They
+              will be used to structure the layout.
+            </TextStyle>
+            <TextStyle>
+              Sections cannot nest in sections. Columns can nest in sections;
+              all content must be in a column.
+            </TextStyle>
+          </Stack>
+        ),
+        component: noopBlock,
+      },
+      {
+        type: BasicType.SECTION,
+        title : '3 cols',
+        indentTitle: true,
+        description: (
+          <Stack vertical spacing="none">
+            <TextStyle>
+              Sections are intended to be used as rows within your email. They
+              will be used to structure the layout.
+            </TextStyle>
+            <TextStyle>
+              Sections cannot nest in sections. Columns can nest in sections;
+              all content must be in a column.
+            </TextStyle>
+          </Stack>
+        ),
+        component: noopBlock,
+      },
+      {
+        type: BasicType.SECTION,
+        title : '4 cols',
+        indentTitle: true,
         description: (
           <Stack vertical spacing="none">
             <TextStyle>
