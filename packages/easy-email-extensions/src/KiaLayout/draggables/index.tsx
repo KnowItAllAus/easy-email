@@ -1,23 +1,11 @@
 import React from 'react';
 import { BasicType } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
+import { BlockMarketCategory } from '@extensions/ShortcutToolbar';
 
-import { TextBlockItem } from './TextBlockItem';
-import { ImageBlockItem } from './ImageBlockItem';
-import { SpacerBlockItem } from './SpacerBlockItem';
-import { DividerBlockItem } from './DividerBlockItem';
-import { HeroBlockItem } from './HeroBlockItem';
-import { ButtonBlockItem } from './ButtonBlockItem';
-import { AccordionBlockItem } from './AccordionBlockItem';
-import { CarouselBlockItem } from './CarouselBlockItem';
-import { NavbarBlockItem } from './NavbarBlockItem';
-import { SocialBlockItem } from './SocialBlockItem';
-import { WrapperBlockItem } from './WrapperBlockItem';
-import { SectionBlockItem } from './SectionBlockItem';
-import { GroupBlockItem } from './GroupBlockItem';
-import { ColumnBlockItem } from './ColumnBlockItem';
+const noopBlock = () => null;
 
-export const defaultCategories = [
+export const defaultCategories: Array<BlockMarketCategory> = [
   {
     title: 'Content',
     name: 'CONTENT',
@@ -26,13 +14,13 @@ export const defaultCategories = [
         type: BasicType.TEXT,
         title: 'Text',
         description: 'This block allows you to display text in your email.',
-        component: TextBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.IMAGE,
         title: 'Image',
         description: (
-          <Stack vertical spacing='none'>
+          <Stack vertical spacing="none">
             <TextStyle>
               Displays a responsive image in your email. It is similar to the
               HTML "&lt;img/&gt;" tag. Note that if no width is provided, the
@@ -40,40 +28,40 @@ export const defaultCategories = [
             </TextStyle>
           </Stack>
         ),
-        component: ImageBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.BUTTON,
         title: 'Button',
         description: 'Displays a customizable button.',
-        component: ButtonBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.HERO,
         title: 'Hero',
         description: `This block displays a hero image. It behaves like an
         'section' with a single 'column'.`,
-        component: HeroBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.NAVBAR,
         title: 'Navbar',
         description: `Displays a menu for navigation with an optional hamburger
         mode for mobile devices.`,
-        component: NavbarBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.SPACER,
         title: 'Spacer',
         description: 'Displays a blank space.',
-        component: SpacerBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.DIVIDER,
         title: 'Divider',
         description: `Displays a horizontal divider that can be customized like a
         HTML border.`,
-        component: DividerBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.ACCORDION,
@@ -83,7 +71,7 @@ export const defaultCategories = [
         are visible. Readers can interact by clicking on the tabs
         to reveal the content, providing a great experience on
         mobile devices where space is scarce.`,
-        component: AccordionBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.CAROUSEL,
@@ -91,14 +79,14 @@ export const defaultCategories = [
         description: `This block displays a gallery of images or "carousel".
         Readers can interact by hovering and clicking on
         thumbnails depending on the email client they use.`,
-        component: CarouselBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.SOCIAL,
         title: 'Social',
         description: `Displays calls-to-action for various social networks with
         their associated logo.`,
-        component: SocialBlockItem,
+        component: noopBlock,
       },
     ],
   },
@@ -107,17 +95,10 @@ export const defaultCategories = [
     name: 'LAYOUT',
     blocks: [
       {
-        type: BasicType.WRAPPER,
-        title: 'Wrapper',
-        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
-        `,
-        component: WrapperBlockItem,
-      },
-      {
         type: BasicType.SECTION,
         title: 'Section',
         description: (
-          <Stack vertical spacing='none'>
+          <Stack vertical spacing="none">
             <TextStyle>
               Sections are intended to be used as rows within your email. They
               will be used to structure the layout.
@@ -128,21 +109,13 @@ export const defaultCategories = [
             </TextStyle>
           </Stack>
         ),
-        component: SectionBlockItem,
-      },
-      {
-        type: BasicType.GROUP,
-        title: 'Group',
-        description: `Group allows you to prevent columns from stacking on
-          mobile. To do so, wrap the columns inside a group
-          block, so they'll stay side by side on mobile.`,
-        component: GroupBlockItem,
+        component: noopBlock,
       },
       {
         type: BasicType.COLUMN,
         title: 'Column',
         description: (
-          <Stack vertical spacing='none'>
+          <Stack vertical spacing="none">
             <TextStyle>
               Columns enable you to horizontally organize the content within
               your sections. They must be located under "Section" block in order
@@ -156,7 +129,23 @@ export const defaultCategories = [
             </TextStyle>
           </Stack>
         ),
-        component: ColumnBlockItem,
+        component: noopBlock,
+      },
+      {
+        type: BasicType.WRAPPER,
+        title: 'Wrapper',
+        description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
+        `,
+        component: noopBlock,
+      },
+
+      {
+        type: BasicType.GROUP,
+        title: 'Group',
+        description: `Group allows you to prevent columns from stacking on
+          mobile. To do so, wrap the columns inside a group
+          block, so they'll stay side by side on mobile.`,
+        component: noopBlock,
       },
     ],
   },
