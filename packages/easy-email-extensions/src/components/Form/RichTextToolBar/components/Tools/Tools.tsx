@@ -87,12 +87,12 @@ export function Tools(props: ToolsProps) {
             trigger='click'
             color='#fff'
             position='left'
-            content={
+            content={(
               <MergeTags
                 value=''
                 onChange={(val) => execCommand('insertHTML', val)}
               />
-            }
+            )}
             getPopupContainer={getPopoverMountNode}
           >
             <ToolItem
@@ -106,12 +106,12 @@ export function Tools(props: ToolsProps) {
         <Popover
           className='easy-email-extensions-Tools-Popover'
           trigger='click'
-          content={
+          content={(
             <>
               <style>{styleText}</style>
               <FontFamily onChange={(val) => execCommand('fontName', val)} />
             </>
-          }
+          )}
           getPopupContainer={getPopoverMountNode}
         >
           <ToolItem
@@ -124,16 +124,16 @@ export function Tools(props: ToolsProps) {
           className='easy-email-extensions-Tools-Popover'
           color='#fff'
           trigger='click'
-          content={
+          content={(
             <>
               <style>{styleText}</style>
               <FontSizeList onChange={(val) => execCommand('fontSize', val)} />
             </>
-          }
+          )}
           getPopupContainer={getPopoverMountNode}
         >
           <ToolItem
-            title='line-height'
+            title='font-size'
             icon={<IconFont iconName='icon-line-height' />}
           />
         </Popover>
