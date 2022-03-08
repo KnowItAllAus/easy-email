@@ -2,11 +2,13 @@ import React from 'react';
 import { BasicType } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
 import { IBlockCategory } from '../leftnav/model/BlockCategory';
-import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
-import {   Section1Column,
+import {
+  Section1Column,
   Section2Column,
   Section3Column,
-  Section4Column } from '../assets/section';
+  Section4Column,
+} from '../assets/section';
+import { SectionType } from './layout/SectionDraggable';
 
 const noopBlock = () => null;
 
@@ -17,6 +19,7 @@ export const defaultCategories: Array<IBlockCategory> = [
     blocks: [
       {
         type: BasicType.SECTION,
+        subType: SectionType.SECTION1COLUMN,
         heading: 'Section',
         title: '1 cols',
         subItem: true,
@@ -37,6 +40,7 @@ export const defaultCategories: Array<IBlockCategory> = [
       },
       {
         type: BasicType.SECTION,
+        subType: SectionType.SECTION2COLUMN,
         title: '2 cols',
         subItem: true,
         thumbnail: Section2Column,
@@ -45,6 +49,7 @@ export const defaultCategories: Array<IBlockCategory> = [
       },
       {
         type: BasicType.SECTION,
+        subType: SectionType.SECTION3COLUMN,
         title: '3 cols',
         subItem: true,
         thumbnail: Section3Column,
@@ -53,6 +58,7 @@ export const defaultCategories: Array<IBlockCategory> = [
       },
       {
         type: BasicType.SECTION,
+        subType: SectionType.SECTION4COLUMN,
         title: '4 cols',
         subItem: true,
         thumbnail: Section4Column,

@@ -11,17 +11,19 @@ import { AccordianDraggable } from './content/AccordianDraggable';
 import { CarouselDraggable } from './content/CarouselDraggable';
 import { SocialDraggable } from './content/SocialDraggable';
 import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
-import { SectionDraggable } from './layout/SectionDraggable';
+import { SectionDraggable, SectionType } from './layout/SectionDraggable';
 import { GroupDraggable } from './layout/GroupDraggable';
 import { ColumnDraggable } from './layout/ColumnDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
+  subType?: SectionType;
   children: React.ReactNode;
 }
 
 export const DraggableFactory = ({
   type,
+  subType,
   children,
 }: IBlockMaskWrapperFactoryProps) => {
   switch (type) {
@@ -48,7 +50,12 @@ export const DraggableFactory = ({
     case BasicType.WRAPPER:
       return <WrapperElementDraggable>{children}</WrapperElementDraggable>;
     case BasicType.SECTION:
-      return <SectionDraggable>{children}</SectionDraggable>;
+      return (
+        <SectionDraggable columnNumber={parseInt(subType?.toString() ?? '')}>
+          {children}
+        </SectionDraggable>
+      );
+
     case BasicType.GROUP:
       return <GroupDraggable>{children}</GroupDraggable>;
     case BasicType.COLUMN:

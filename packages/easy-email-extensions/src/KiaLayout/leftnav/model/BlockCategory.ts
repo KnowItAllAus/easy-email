@@ -7,6 +7,7 @@ export interface IBlockCategory extends BlockMarketCategory {
 
 export interface IBlockCategoryItem {
   type: string;
+  subType?: string | number,
   heading?: string;
   title: string;
   subItem?: boolean;

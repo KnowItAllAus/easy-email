@@ -8,6 +8,7 @@ import styles from '../index.module.scss';
 import { IBlockCategory } from './model/BlockCategory';
 import { BlockItem } from './BlockItem';
 import { BlockItemHeading } from './BlockItemHeading';
+import { SectionType } from '../draggables/layout/SectionDraggable';
 
 export const BlockItemPanel: React.FC<{
   category: IBlockCategory;
@@ -16,12 +17,12 @@ export const BlockItemPanel: React.FC<{
     <div className={styles.blockItems}>
       {props.category.blocks.map((block, index) => {
         return (
-          <>
-            {block.heading ? <BlockItemHeading block={block} key={index} /> : <></>}
-            <DraggableFactory type={block.type as BasicType} key={index}>
+          <div key={index}>
+            {block.heading ? <BlockItemHeading block={block} /> : <></>}
+            <DraggableFactory type={block.type as BasicType} subType={block.subType as SectionType}>
               <BlockItem block={block} />
             </DraggableFactory>
-          </>
+          </div>
         );
       })}
     </div>
