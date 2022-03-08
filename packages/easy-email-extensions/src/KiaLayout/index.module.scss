@@ -48,14 +48,16 @@
   }
 }
 
+$block-item-width: 120px;
+
 .blockItems {
-  width: 100px;
+  width: $block-item-width;
   display: flex;
   flex-direction: column;
 }
 
 .blockItemWrapper {
-  width: 100px;
+  width: $block-item-width;
   display: flex;
   margin: 0.5em 0;
   padding-right: 0.3em;
@@ -63,7 +65,7 @@
 }
 
 .blockItemWrapperSmall {
-  width: 100px;
+  width: $block-item-width;
   display: flex;
   padding-right: 0.3em;
   border-radius: 15px;
