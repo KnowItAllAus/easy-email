@@ -7,7 +7,7 @@ import { BlockLayer, BlockLayerProps } from '../BlockLayer';
 import { InteractivePrompt } from '../InteractivePrompt';
 import styles from './index.module.scss';
 import enUS from '@arco-design/web-react/es/locale/en-US';
-import { LeftPanel } from './leftnav/LeftPanel';
+import { LeftPanel } from './leftnav';
 
 export const KiaLayout: React.FC<
   {

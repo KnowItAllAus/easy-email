@@ -5,31 +5,26 @@ import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { BasicType } from 'easy-email-core';
 import { DraggableFactory } from '../draggables/DraggableFactory';
 import styles from '../index.module.scss';
+import { IBlockCategory } from './model/BlockCategory';
+import { BlockItem } from './BlockItem';
+import { BlockItemHeading } from './BlockItemHeading';
+import { SectionType } from '../draggables/layout/SectionDraggable';
 
 export const BlockItemPanel: React.FC<{
-  category: BlockMarketCategory;
+  category: IBlockCategory;
 }> = (props) => {
   return (
     <div className={styles.blockItems}>
-
       {props.category.blocks.map((block, index) => {
         return (
-          <DraggableFactory type={block.type as BasicType} key={index}>
-            <div
-              className={styles.blockItemWrapper}
-            >
-              <div
-                className={styles.blockItem}
-                style={{ flexGrow: 1 }}
-              >
-                {block.title}{' '}
-              </div>
-              {block.description && <Help title={block.description} />}
-            </div>
-          </DraggableFactory>
+          <div key={index}>
+            {block.heading ? <BlockItemHeading block={block} /> : <></>}
+            <DraggableFactory type={block.type as BasicType} subType={block.subType as SectionType}>
+              <BlockItem block={block} />
+            </DraggableFactory>
+          </div>
         );
       })}
-
     </div>
   );
 };

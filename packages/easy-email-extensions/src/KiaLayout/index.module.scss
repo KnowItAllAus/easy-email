@@ -62,8 +62,25 @@
   border-radius: 15px;
 }
 
+.blockItemWrapperSmall {
+  width: 100px;
+  display: flex;
+  padding-right: 0.3em;
+  border-radius: 15px;
+}
+
 .blockItem {
   text-align: center;
   padding: 3px 12px;
   min-width: 60px;
+
 }
+
+.blockItemSmall {
+  text-align: center;
+  padding: 3px 12px;
+  min-width: 60px;
+  font-size: small;
+
+}
+

@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Card, Tabs } from '@arco-design/web-react';
 import { BlockMarketCategory, BlockMarketManager } from '@extensions';
-//import { defaultCategories } from '../../ShortcutToolbar/components/BlocksPanel/presetTemplate';
 import { defaultCategories } from '../draggables';
 import { ShortcutToolbar } from './ShortcutToolbar';
 import { TabTitle } from './TabTitle';
