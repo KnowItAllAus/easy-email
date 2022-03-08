@@ -2,6 +2,7 @@ import React from 'react';
 import { BasicType } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
 import { IBlockCategory } from '../leftnav/model/BlockCategory';
+import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
 
 const noopBlock = () => null;
 
@@ -13,8 +14,9 @@ export const defaultCategories: Array<IBlockCategory> = [
       {
         type: BasicType.SECTION,
         heading: 'Section',
-        title: '2 cols',
+        title: '1 cols',
         subItem: true,
+        thumbnail: getImg('IMAGE_48'),
         description: (
           <Stack vertical spacing="none">
             <TextStyle>
@@ -27,42 +29,30 @@ export const defaultCategories: Array<IBlockCategory> = [
             </TextStyle>
           </Stack>
         ),
+        component: noopBlock,
+      },
+      {
+        type: BasicType.SECTION,
+        title: '2 cols',
+        subItem: true,
+        thumbnail: getImg('IMAGE_49'),
+        description: null,
         component: noopBlock,
       },
       {
         type: BasicType.SECTION,
         title: '3 cols',
         subItem: true,
-        description: (
-          <Stack vertical spacing="none">
-            <TextStyle>
-              Sections are intended to be used as rows within your email. They
-              will be used to structure the layout.
-            </TextStyle>
-            <TextStyle>
-              Sections cannot nest in sections. Columns can nest in sections;
-              all content must be in a column.
-            </TextStyle>
-          </Stack>
-        ),
+        thumbnail: getImg('IMAGE_50'),
+        description: null,
         component: noopBlock,
       },
       {
         type: BasicType.SECTION,
         title: '4 cols',
         subItem: true,
-        description: (
-          <Stack vertical spacing="none">
-            <TextStyle>
-              Sections are intended to be used as rows within your email. They
-              will be used to structure the layout.
-            </TextStyle>
-            <TextStyle>
-              Sections cannot nest in sections. Columns can nest in sections;
-              all content must be in a column.
-            </TextStyle>
-          </Stack>
-        ),
+        thumbnail: getImg('IMAGE_51'),
+        description: null,
         component: noopBlock,
       },
       {

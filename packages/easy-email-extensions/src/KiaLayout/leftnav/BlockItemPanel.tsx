@@ -17,7 +17,7 @@ export const BlockItemPanel: React.FC<{
       {props.category.blocks.map((block, index) => {
         return (
           <>
-            {block.heading ? <BlockItemHeading block={block} /> : <></>}
+            {block.heading ? <BlockItemHeading block={block} key={index} /> : <></>}
             <DraggableFactory type={block.type as BasicType} key={index}>
               <BlockItem block={block} />
             </DraggableFactory>
