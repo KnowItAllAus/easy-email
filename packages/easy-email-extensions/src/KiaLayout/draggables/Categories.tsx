@@ -3,6 +3,10 @@ import { BasicType } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
 import { IBlockCategory } from '../leftnav/model/BlockCategory';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
+import {   Section1Column,
+  Section2Column,
+  Section3Column,
+  Section4Column } from '../assets/section';
 
 const noopBlock = () => null;
 
@@ -16,7 +20,7 @@ export const defaultCategories: Array<IBlockCategory> = [
         heading: 'Section',
         title: '1 cols',
         subItem: true,
-        thumbnail: getImg('IMAGE_48'),
+        thumbnail: Section1Column,
         description: (
           <Stack vertical spacing="none">
             <TextStyle>
@@ -35,7 +39,7 @@ export const defaultCategories: Array<IBlockCategory> = [
         type: BasicType.SECTION,
         title: '2 cols',
         subItem: true,
-        thumbnail: getImg('IMAGE_49'),
+        thumbnail: Section2Column,
         description: null,
         component: noopBlock,
       },
@@ -43,7 +47,7 @@ export const defaultCategories: Array<IBlockCategory> = [
         type: BasicType.SECTION,
         title: '3 cols',
         subItem: true,
-        thumbnail: getImg('IMAGE_50'),
+        thumbnail: Section3Column,
         description: null,
         component: noopBlock,
       },
@@ -51,7 +55,7 @@ export const defaultCategories: Array<IBlockCategory> = [
         type: BasicType.SECTION,
         title: '4 cols',
         subItem: true,
-        thumbnail: getImg('IMAGE_51'),
+        thumbnail: Section4Column,
         description: null,
         component: noopBlock,
       },
