@@ -5,36 +5,21 @@ import { Help } from '@extensions/AttributePanel/components/UI/Help';
 import { BasicType } from 'easy-email-core';
 import { DraggableFactory } from '../draggables/DraggableFactory';
 import styles from '../index.module.scss';
-import { BlockMarketCategoryExtended } from '../draggables';
+import { IBlockCategory } from './model/BlockCategory';
+import { BlockItem } from './BlockItem';
+import { BlockItemHeading } from './BlockItemHeading';
 
 export const BlockItemPanel: React.FC<{
-  category: BlockMarketCategoryExtended;
+  category: IBlockCategory;
 }> = (props) => {
-  const smallText = {
-    fontSize: '10px',
-    marginLeft: '-2em',
-
-  };
-
   return (
     <div className={styles.blockItems}>
       {props.category.blocks.map((block, index) => {
         return (
           <>
-            {block.heading ? (
-              <div className={styles.blockHeading}>{block.heading}</div>
-            ) : (
-              <></>
-            )}
+            {block.heading ? <BlockItemHeading block={block} /> : <></>}
             <DraggableFactory type={block.type as BasicType} key={index}>
-              <div className={block.indentTitle ? styles.blockItemWrapperSmall : styles.blockItemWrapper}>
-                <div className={block.indentTitle ? styles.blockItemSmall : styles.blockItem} style={{ flexGrow: 1 }}>
-                  {/* <span style={block.indentTitle ? smallText : {}}> */}
-                    {block.title}{' '}
-                  {/* </span> */}
-                </div>
-                {block.description && <Help title={block.description} />}
-              </div>
+              <BlockItem block={block} />
             </DraggableFactory>
           </>
         );
