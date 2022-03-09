@@ -48,24 +48,18 @@
   }
 }
 
+$block-item-width: 130px;
+
 .blockItems {
-  width: 100px;
+  width: $block-item-width;
   display: flex;
   flex-direction: column;
 }
 
 .blockItemWrapper {
-  width: 100px;
+  width: $block-item-width;
   display: flex;
-  margin: 0.5em 0;
-  padding-right: 0.3em;
-  border-radius: 15px;
-}
-
-.blockItemWrapperSmall {
-  width: 100px;
-  display: flex;
-  padding-right: 0.3em;
+  padding: 0.5em 1em;
   border-radius: 15px;
 }
 
@@ -73,7 +67,6 @@
   text-align: center;
   padding: 3px 12px;
   min-width: 60px;
-
 }
 
 .blockItemSmall {
@@ -81,6 +74,4 @@
   padding: 3px 12px;
   min-width: 60px;
   font-size: small;
-
 }
-
