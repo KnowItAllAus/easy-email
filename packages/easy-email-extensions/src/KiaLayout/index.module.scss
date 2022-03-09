@@ -48,7 +48,7 @@
   }
 }
 
-$block-item-width: 110px;
+$block-item-width: 130px;
 
 .blockItems {
   width: $block-item-width;
@@ -59,15 +59,7 @@ $block-item-width: 110px;
 .blockItemWrapper {
   width: $block-item-width;
   display: flex;
-  margin: 0.5em 0;
-  padding-right: 0.3em;
-  border-radius: 15px;
-}
-
-.blockItemWrapperSmall {
-  width: $block-item-width;
-  display: flex;
-  padding-right: 0.3em;
+  padding: 0.5em 1em;
   border-radius: 15px;
 }
 
@@ -75,7 +67,6 @@ $block-item-width: 110px;
   text-align: center;
   padding: 3px 12px;
   min-width: 60px;
-
 }
 
 .blockItemSmall {
@@ -83,6 +74,4 @@ $block-item-width: 110px;
   padding: 3px 12px;
   min-width: 60px;
   font-size: small;
-
 }
-
