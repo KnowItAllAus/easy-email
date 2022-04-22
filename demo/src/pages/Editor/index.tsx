@@ -39,7 +39,7 @@ import {
   IBlockData,
   JsonToMjml,
 } from 'easy-email-core';
-import { BlockMarketManager, SimpleLayout } from 'easy-email-extensions';
+import { BlockMarketManager, KiaLayout, SimpleLayout } from 'easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
 // Register external blocks
