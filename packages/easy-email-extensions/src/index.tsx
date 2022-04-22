@@ -8,6 +8,8 @@ export * from './InteractivePrompt';
 export * from './SimpleLayout';
 export * from './KiaLayout';
 
+export * from './MergeTagBadgePrompt';
+export * from './constants';
 export * from './components/Form';
 
 export { getContextMergeTags } from './utils/getContextMergeTags';

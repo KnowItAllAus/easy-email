@@ -1,13 +1,12 @@
 {
-  "name": "@knowitall/easy-email-extensions",
+  "name": "easy-email-extensions",
   "license": "MIT",
   "description": "Email editor",
-  "version": "3.1.70",
-  "author": "m-Ryan, timbrownls20",
-  "private": false,
+  "version": "4.1.7",
+  "author": "m-Ryan",
   "repository": {
     "type": "git",
-    "url": "git@github.com/KnowItAllAus/easy-email.git"
+    "url": "git@github.com:m-Ryan/easy-email.git"
   },
   "keywords": [
     "email editor core"
@@ -34,7 +33,7 @@
     ]
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.177",
+    "@types/lodash": "^4.14.178",
     "@types/node": "^16.11.7",
     "@types/react": "17.0.2",
     "@types/react-dom": "^17.0.11",
@@ -85,5 +84,5 @@
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.7"
   },
-  "gitHead": "801465cc126f6fc227b7d938c67d3b9487878cd4"
+  "gitHead": "bb5757eb3146f55c31d4354f1480939c3af8efe1"
 }
