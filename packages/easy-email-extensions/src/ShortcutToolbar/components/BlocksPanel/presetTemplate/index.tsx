@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdvancedType } from 'easy-email-core';
+import { BasicType } from 'easy-email-core';
 import { Stack, TextStyle } from 'easy-email-editor';
 
 import { TextBlockItem } from './TextBlockItem';
@@ -23,13 +23,13 @@ export const defaultCategories = [
     name: 'CONTENT',
     blocks: [
       {
-        type: AdvancedType.TEXT,
+        type: BasicType.TEXT,
         title: 'Text',
         description: 'This block allows you to display text in your email.',
         component: TextBlockItem,
       },
       {
-        type: AdvancedType.IMAGE,
+        type: BasicType.IMAGE,
         title: 'Image',
         description: (
           <Stack vertical spacing='none'>
@@ -43,40 +43,40 @@ export const defaultCategories = [
         component: ImageBlockItem,
       },
       {
-        type: AdvancedType.BUTTON,
+        type: BasicType.BUTTON,
         title: 'Button',
         description: 'Displays a customizable button.',
         component: ButtonBlockItem,
       },
       {
-        type: AdvancedType.HERO,
+        type: BasicType.HERO,
         title: 'Hero',
         description: `This block displays a hero image. It behaves like an
         'section' with a single 'column'.`,
         component: HeroBlockItem,
       },
       {
-        type: AdvancedType.NAVBAR,
+        type: BasicType.NAVBAR,
         title: 'Navbar',
         description: `Displays a menu for navigation with an optional hamburger
         mode for mobile devices.`,
         component: NavbarBlockItem,
       },
       {
-        type: AdvancedType.SPACER,
+        type: BasicType.SPACER,
         title: 'Spacer',
         description: 'Displays a blank space.',
         component: SpacerBlockItem,
       },
       {
-        type: AdvancedType.DIVIDER,
+        type: BasicType.DIVIDER,
         title: 'Divider',
         description: `Displays a horizontal divider that can be customized like a
         HTML border.`,
         component: DividerBlockItem,
       },
       {
-        type: AdvancedType.ACCORDION,
+        type: BasicType.ACCORDION,
         title: 'Accordion',
         description: `Accordion is an interactive component to stack content in
         tabs, so the information is collapsed and only the titles
@@ -86,7 +86,7 @@ export const defaultCategories = [
         component: AccordionBlockItem,
       },
       {
-        type: AdvancedType.CAROUSEL,
+        type: BasicType.CAROUSEL,
         title: 'Carousel',
         description: `This block displays a gallery of images or "carousel".
         Readers can interact by hovering and clicking on
@@ -94,7 +94,7 @@ export const defaultCategories = [
         component: CarouselBlockItem,
       },
       {
-        type: AdvancedType.SOCIAL,
+        type: BasicType.SOCIAL,
         title: 'Social',
         description: `Displays calls-to-action for various social networks with
         their associated logo.`,
@@ -107,14 +107,14 @@ export const defaultCategories = [
     name: 'LAYOUT',
     blocks: [
       {
-        type: AdvancedType.WRAPPER,
+        type: BasicType.WRAPPER,
         title: 'Wrapper',
         description: `Wrapper enables to wrap multiple sections together. It's especially useful to achieve nested layouts with shared border or background images across sections.
         `,
         component: WrapperBlockItem,
       },
       {
-        type: AdvancedType.SECTION,
+        type: BasicType.SECTION,
         title: 'Section',
         description: (
           <Stack vertical spacing='none'>
@@ -131,7 +131,7 @@ export const defaultCategories = [
         component: SectionBlockItem,
       },
       {
-        type: AdvancedType.GROUP,
+        type: BasicType.GROUP,
         title: 'Group',
         description: `Group allows you to prevent columns from stacking on
           mobile. To do so, wrap the columns inside a group
@@ -139,7 +139,7 @@ export const defaultCategories = [
         component: GroupBlockItem,
       },
       {
-        type: AdvancedType.COLUMN,
+        type: BasicType.COLUMN,
         title: 'Column',
         description: (
           <Stack vertical spacing='none'>

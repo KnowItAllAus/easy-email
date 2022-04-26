@@ -1,19 +1,19 @@
+import { IframeComponent } from '@/components/UI/IframeComponent';
 import React from 'react';
 import { PreviewEmail } from '../PreviewEmail';
 
 import iphoneFrame from '@/assets/images/iphone.png';
-import { ActiveTabKeys } from '@/components/Provider/BlocksProvider';
-import { useActiveTab } from '@';
-import { usePreviewEmail } from '@/hooks/usePreviewEmail';
+import { useMobileScale } from '@/hooks/useMobileScale';
+
 const MOBILE_WIDTH = 320;
 const MOBILE_Height = 640;
 
 export function MobileEmailPreview() {
-  const { mobileWidth } = usePreviewEmail();
-  const { activeTab } = useActiveTab();
+
+  const { mobileWidth } = useMobileScale();
+
   return (
     <div
-      className='easy-email-overlay'
       style={{
         height: '100%',
         display: 'flex',
@@ -49,20 +49,29 @@ export function MobileEmailPreview() {
           height: MOBILE_Height
         }}
         >
-          <div
+          <IframeComponent
+            height={MOBILE_Height / (MOBILE_WIDTH / mobileWidth)}
+            width='100%'
             style={{
-              height: MOBILE_Height / (MOBILE_WIDTH / mobileWidth),
+
               width: mobileWidth,
               boxSizing: 'content-box',
               borderRadius: 30,
               border: 'none',
               transform: `scale(${MOBILE_WIDTH / mobileWidth})`,
               transformOrigin: 'left top',
-              overflow: 'hidden'
             }}
           >
-            <PreviewEmail isActive={activeTab === ActiveTabKeys.MOBILE} />
-          </div>
+            <style>
+              {`
+            *::-webkit-scrollbar {
+              width: 0px;
+              background-color: transparent;
+            }
+          `}
+            </style>
+            <PreviewEmail />
+          </IframeComponent>
         </div>
 
       </div>

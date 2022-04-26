@@ -27,4 +27,3 @@ export { NavbarLinkPadding } from './NavbarLinkPadding';
 export { BorderWidth } from './BorderWidth';
 export { FontWeight } from './FontWeight';
 export { Padding } from './Padding';
-export { ClassName } from './ClassName';

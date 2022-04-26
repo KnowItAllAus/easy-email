@@ -5,7 +5,6 @@ import { history } from '@demo/utils/history';
 import { emailToImage } from '@demo/utils/emailToImage';
 import { IBlockData, BlockManager, BasicType } from 'easy-email-core';
 import { IEmailTemplate } from 'easy-email-editor';
-import { getTemplate } from '@demo/config/getTemplate';
 
 export function getAdaptor(data: IArticle): IEmailTemplate {
   const content = JSON.parse(data.content.content) as IBlockData;
@@ -37,10 +36,7 @@ export default createSliceState({
       }
     ) => {
       try {
-        let data = await getTemplate(id);
-        if (!data) {
-          data = await article.getArticle(id, userId);
-        }
+        const data = await article.getArticle(id, userId);
         return getAdaptor(data);
       } catch (error) {
         history.replace('/');
@@ -102,12 +98,6 @@ export default createSliceState({
       }
     ) => {
       try {
-        let isDefaultTemplate = await getTemplate(payload.id);
-        if (isDefaultTemplate) {
-          Message.error('Cannot change the default template');
-          return;
-        }
-
         const picture = await emailToImage(payload.template.content);
         await article.updateArticle(payload.id, {
           picture,
@@ -124,7 +114,7 @@ export default createSliceState({
         }
       }
     },
-    removeById: async (state, payload: { id: number; success: () => void; }) => {
+    removeById: async (state, payload: { id: number; success: () => void }) => {
       try {
         await article.deleteArticle(payload.id);
         payload.success();

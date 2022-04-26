@@ -1,14 +1,14 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { getPluginElement, RICH_TEXT_BAR_ID, useEditorContext } from 'easy-email-editor';
+import { getEditNode, useFocusBlockLayout } from 'easy-email-editor';
 import { Tools } from './components/Tools';
 import styleText from './shadow-dom.scss?inline';
 
-export function RichTextToolBar(props: { onChange: (s: string) => void; }) {
-  const { initialized } = useEditorContext();
-  const root = initialized && getPluginElement();
+export function RichTextToolBar(props: { onChange: (s: string) => void }) {
+  const { focusBlockNode, focusBlockRect } = useFocusBlockLayout();
 
-  if (!root) return null;
+  if (!focusBlockNode || !focusBlockRect) return null;
+  const editorContainer = getEditNode(focusBlockNode);
 
   return (
     <>
@@ -16,16 +16,14 @@ export function RichTextToolBar(props: { onChange: (s: string) => void; }) {
         <>
           <style dangerouslySetInnerHTML={{ __html: styleText }} />
           <div
-            id={RICH_TEXT_BAR_ID}
             style={{
-              transform: 'translate(0,0)',
+              transform: 'translate(0,-100%)',
               padding: '4px 8px',
               boxSizing: 'border-box',
-              position: 'absolute',
-              left: 8,
-              top: 0,
+              position: 'fixed',
               zIndex: 100,
-              width: 'calc(100% - 16px)',
+              top: focusBlockRect.top - 24,
+              left: focusBlockRect.left,
             }}
           >
             <div
@@ -39,10 +37,10 @@ export function RichTextToolBar(props: { onChange: (s: string) => void; }) {
               }}
             />
 
-            <Tools onChange={props.onChange} />
+            <Tools container={editorContainer} onChange={props.onChange} />
           </div>
         </>,
-        root
+        focusBlockNode
       )}
     </>
   );

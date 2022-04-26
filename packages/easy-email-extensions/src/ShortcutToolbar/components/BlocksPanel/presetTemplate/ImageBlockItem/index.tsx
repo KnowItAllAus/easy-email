@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdvancedType, IImage, RecursivePartial } from 'easy-email-core';
+import { BasicType, IImage, RecursivePartial } from 'easy-email-core';
 import { Stack } from 'easy-email-editor';
 
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
@@ -24,7 +24,7 @@ export function ImageBlockItem() {
           return (
             <BlockMaskWrapper
               key={index}
-              type={AdvancedType.IMAGE}
+              type={BasicType.IMAGE}
               payload={
                 {
                   attributes: {

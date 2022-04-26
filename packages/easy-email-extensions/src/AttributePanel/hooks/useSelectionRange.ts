@@ -4,11 +4,10 @@ import { SelectionRangeContext } from '@extensions/AttributePanel/components/pro
 import { getShadowRoot } from 'easy-email-editor';
 
 export function useSelectionRange() {
-  const { selectionRange, setSelectionRange } = useContext(
-    SelectionRangeContext
-  );
+  const { selectionRange, setSelectionRange } = useContext(SelectionRangeContext);
 
   const restoreRange = useCallback((range: Range) => {
+
     const selection = (getShadowRoot() as any).getSelection();
     selection.removeAllRanges();
     const newRange = document.createRange();
@@ -18,24 +17,9 @@ export function useSelectionRange() {
     selection.addRange(newRange);
   }, []);
 
-  const setRangeByElement = useCallback(
-    (element: ChildNode) => {
-      const selection = (getShadowRoot() as any).getSelection();
-
-      selection.removeAllRanges();
-      const newRange = document.createRange();
-      newRange.selectNode(element);
-      setSelectionRange(newRange);
-      selection.addRange(newRange);
-
-    },
-    [setSelectionRange]
-  );
-
   return {
     selectionRange,
     setSelectionRange,
-    restoreRange,
-    setRangeByElement,
+    restoreRange
   };
 }

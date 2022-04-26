@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdvancedType } from 'easy-email-core';
+import { BasicType } from 'easy-email-core';
 import { Stack } from 'easy-email-editor';
 
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
@@ -49,7 +49,7 @@ export function CarouselBlockItem() {
           return (
             <BlockMaskWrapper
               key={index}
-              type={AdvancedType.CAROUSEL}
+              type={BasicType.CAROUSEL}
               payload={item.payload}
             >
               <div style={{ position: 'relative' }}>

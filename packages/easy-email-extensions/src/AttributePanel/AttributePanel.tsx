@@ -13,7 +13,7 @@ import ReactDOM from 'react-dom';
 import { BlockAttributeConfigurationManager } from './utils/BlockAttributeConfigurationManager';
 import { SelectionRangeProvider } from './components/provider/SelectionRangeProvider';
 
-export interface AttributePanelProps { }
+export interface AttributePanelProps {}
 
 export function AttributePanel() {
   const { values, focusBlock } = useBlock();
@@ -21,12 +21,14 @@ export function AttributePanel() {
 
   const { focusIdx } = useFocusIdx();
 
+  const value = getValueByIdx(values, focusIdx);
+
   const Com =
     focusBlock && BlockAttributeConfigurationManager.get(focusBlock.type);
 
   const shadowRoot = getShadowRoot();
 
-  if (!initialized) return null;
+  if (!value || !initialized) return null;
 
   return (
     <SelectionRangeProvider>

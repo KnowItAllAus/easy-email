@@ -1,189 +1,185 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import { Popover } from '@arco-design/web-react';
 import { ToolItem } from '../ToolItem';
 import { Link, LinkParams } from '../Link';
+import { FontSizeList } from '../FontSizeList';
 import {
   FIXED_CONTAINER_ID,
   getShadowRoot,
   IconFont,
   useEditorProps,
-  useFocusBlockLayout,
 } from 'easy-email-editor';
 import { FontFamily } from '../FontFamily';
-import { MergeTags } from '../MergeTags';
+import { ColorPicker } from '../../../ColorPicker';
+import styleText from './index.scss?inline';
+import { MergeTags } from '@extensions/AttributePanel';
 import { useSelectionRange } from '@extensions/AttributePanel/hooks/useSelectionRange';
-import { IconBgColor } from './IconBgColor';
-import { IconFontColor } from './IconFontColor';
-import { MergeTagBadge } from 'easy-email-editor';
-import { BasicTools } from '../BasicTools';
-import { Unlink } from '../Unlink';
-import { StrikeThrough } from '../StrikeThrough';
-import { Underline } from '../Underline';
-import { Italic } from '../Italic';
-import { Bold } from '../Bold';
-import { FontSize } from '../FontSize';
-import { RICH_TEXT_TOOL_BAR } from '@extensions/constants';
 
 export interface ToolsProps {
   onChange: (content: string) => any;
+  container: HTMLElement | null;
 }
 
 export function Tools(props: ToolsProps) {
-  const { mergeTags, enabledMergeTagsBadge } = useEditorProps();
-  const { focusBlockNode } = useFocusBlockLayout();
-  const { selectionRange, restoreRange, setRangeByElement } =
-    useSelectionRange();
+  const { container } = props;
+  const { mergeTags } = useEditorProps();
+  const { selectionRange, restoreRange } = useSelectionRange();
 
-  const execCommand = useCallback(
-    (cmd: string, val?: any) => {
-      if (!selectionRange) {
-        console.error('No selectionRange');
-        return;
-      }
-      if (!focusBlockNode?.contains(selectionRange?.commonAncestorContainer)) {
-        console.error('Not commonAncestorContainer');
-        return;
-      }
+  const execCommand = (cmd: string, val?: any) => {
+    if (!container) {
+      console.error('No container');
+      return;
+    }
+    if (!selectionRange) {
+      console.error('No selectionRange');
+      return;
+    }
+    if (
+      !container?.contains(selectionRange?.commonAncestorContainer) &&
+      container !== selectionRange?.commonAncestorContainer
+    ) {
+      console.error('Not commonAncestorContainer');
+      return;
+    }
 
-      restoreRange(selectionRange);
-      const uuid = (+new Date()).toString();
-      if (cmd === 'createLink') {
-        const linkData = val as LinkParams;
-        const target = linkData.blank ? '_blank' : '';
-        let link: HTMLAnchorElement;
-        if (linkData.linkNode) {
-          link = linkData.linkNode;
-        } else {
-          document.execCommand(cmd, false, uuid);
+    restoreRange(selectionRange);
 
-          link = getShadowRoot().querySelector(`a[href="${uuid}"`)!;
-        }
-
-        if (target) {
-          link.setAttribute('target', target);
-        }
-        link.style.color = 'inherit';
-        link.style.textDecoration = linkData.underline ? 'underline' : 'none';
-        link.setAttribute('href', linkData.link);
-      } else if (cmd === 'insertHTML') {
-        let newContent = val;
-        if (enabledMergeTagsBadge) {
-          newContent = MergeTagBadge.transform(val, uuid);
-        }
-
-        document.execCommand(cmd, false, newContent);
-        const insertMergeTagEle = getShadowRoot().getElementById(uuid);
-        if (insertMergeTagEle) {
-          insertMergeTagEle.focus();
-          setRangeByElement(insertMergeTagEle);
-        }
+    if (cmd === 'createLink') {
+      const linkData = val as LinkParams;
+      const target = linkData.blank ? '_blank' : '';
+      let link: HTMLAnchorElement;
+      if (linkData.linkNode) {
+        link = linkData.linkNode;
       } else {
-        document.execCommand(cmd, false, val);
+        const uuid = (+new Date()).toString();
+        document.execCommand(cmd, false, uuid);
+
+        link = getShadowRoot().querySelector(`a[href="${uuid}"`)!;
       }
 
-      const contenteditableElement = getShadowRoot().activeElement;
-      if (contenteditableElement?.getAttribute('contenteditable') === 'true') {
-        const html = getShadowRoot().activeElement?.innerHTML || '';
-        props.onChange(html);
+      if (target) {
+        link.setAttribute('target', target);
       }
-    },
-    [
-      enabledMergeTagsBadge,
-      focusBlockNode,
-      props,
-      restoreRange,
-      selectionRange,
-      setRangeByElement,
-    ]
-  );
-
-  const execCommandWithRange = useCallback(
-    (cmd: string, val?: any) => {
+      link.style.color = 'inherit';
+      link.style.textDecoration = linkData.underline ? 'underline' : 'none';
+      link.setAttribute('href', linkData.link);
+    } else {
       document.execCommand(cmd, false, val);
-      const contenteditableElement = getShadowRoot().activeElement;
-      if (contenteditableElement?.getAttribute('contenteditable') === 'true') {
-        const html = getShadowRoot().activeElement?.innerHTML || '';
-        props.onChange(html);
-      }
-    },
-    [props.onChange]
-  );
+    }
+
+    const html = container.innerHTML;
+    props.onChange(html);
+  };
 
   const getPopoverMountNode = () =>
     document.getElementById(FIXED_CONTAINER_ID)!;
 
   return (
-    <div
-      id={RICH_TEXT_TOOL_BAR}
-      style={{ display: 'flex', flexWrap: 'nowrap' }}
-    >
+    <div id='Tools' style={{ display: 'flex', flexWrap: 'nowrap' }}>
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
         }}
       >
-        <BasicTools />
-
         {mergeTags && (
-          <MergeTags
-            execCommand={execCommand}
+          <Popover
+            trigger='click'
+            color='#fff'
+            position='left'
+            content={(
+              <MergeTags
+                value=''
+                onChange={(val) => execCommand('insertHTML', val)}
+              />
+            )}
             getPopupContainer={getPopoverMountNode}
-          />
+          >
+            <ToolItem
+              title='Merge tag'
+              icon={<IconFont iconName='icon-merge-tags' />}
+            />
+          </Popover>
         )}
         <div className='easy-email-extensions-divider' />
         <div className='easy-email-extensions-divider' />
-        <FontFamily
-          execCommand={execCommand}
+        <Popover
+          className='easy-email-extensions-Tools-Popover'
+          trigger='click'
+          content={(
+            <>
+              <style>{styleText}</style>
+              <FontFamily onChange={(val) => execCommand('fontName', val)} />
+            </>
+          )}
           getPopupContainer={getPopoverMountNode}
-        />
+        >
+          <ToolItem
+            title='font family'
+            icon={<IconFont iconName='icon-font-family' />}
+          />
+        </Popover>
         <div className='easy-email-extensions-divider' />
-        <FontSize
-          execCommand={execCommand}
+        <Popover
+          className='easy-email-extensions-Tools-Popover'
+          color='#fff'
+          trigger='click'
+          content={(
+            <>
+              <style>{styleText}</style>
+              <FontSizeList onChange={(val) => execCommand('fontSize', val)} />
+            </>
+          )}
           getPopupContainer={getPopoverMountNode}
+        >
+          <ToolItem
+            title='font-size'
+            icon={<IconFont iconName='icon-line-height' />}
+          />
+        </Popover>
+        <div className='easy-email-extensions-divider' />
+        <ToolItem
+          onClick={() => execCommand('bold')}
+          icon={<IconFont iconName='icon-bold' />}
+          title='Bold'
         />
         <div className='easy-email-extensions-divider' />
-        <Bold
-          currentRange={selectionRange}
-          onChange={() => execCommandWithRange('bold')}
+        <ToolItem
+          onClick={() => execCommand('italic')}
+          icon={<IconFont iconName='icon-italic' />}
+          title='Italic'
         />
         <div className='easy-email-extensions-divider' />
-        <Italic
-          currentRange={selectionRange}
-          onChange={() => execCommandWithRange('italic')}
-        />
+        <ColorPicker
+          label=''
+          position='tl'
+          onChange={(color) => execCommand('foreColor', color)}
+          getPopupContainer={getPopoverMountNode}
+          showInput={false}
+        >
+          <ToolItem
+            icon={<IconFont iconName='icon-font-color' />}
+            title='Text color'
+          />
+        </ColorPicker>
         <div className='easy-email-extensions-divider' />
-        <StrikeThrough
-          currentRange={selectionRange}
-          onChange={() => execCommandWithRange('strikeThrough')}
-        />
-        <div className='easy-email-extensions-divider' />
-        <Underline
-          currentRange={selectionRange}
-          onChange={() => execCommandWithRange('underline')}
-        />
-        <div className='easy-email-extensions-divider' />
-        <IconFontColor
-          selectionRange={selectionRange}
-          execCommand={execCommand}
-          getPopoverMountNode={getPopoverMountNode}
-        />
-        <div className='easy-email-extensions-divider' />
-        <IconBgColor
-          selectionRange={selectionRange}
-          execCommand={execCommand}
-          getPopoverMountNode={getPopoverMountNode}
-        />
-
+        <ColorPicker
+          label=''
+          showInput={false}
+          position='tl'
+          onChange={(color) => execCommand('hiliteColor', color)}
+          getPopupContainer={getPopoverMountNode}
+        >
+          <ToolItem
+            icon={<IconFont iconName='icon-bg-colors' />}
+            title='Background color'
+          />
+        </ColorPicker>
         <div className='easy-email-extensions-divider' />
         <Link
           currentRange={selectionRange}
           onChange={(values) => execCommand('createLink', values)}
           getPopupContainer={getPopoverMountNode}
-        />
-        <div className='easy-email-extensions-divider' />
-        <Unlink
-          currentRange={selectionRange}
-          onChange={() => execCommand('')}
         />
         <div className='easy-email-extensions-divider' />
 
@@ -214,6 +210,16 @@ export function Tools(props: ToolsProps) {
           title='Unorderlist'
         />
         <div className='easy-email-extensions-divider' />
+        <ToolItem
+          onClick={() => execCommand('strikeThrough')}
+          icon={<IconFont iconName='icon-strikethrough' />}
+          title='StrikethroughOutlined'
+        />
+        <ToolItem
+          onClick={() => execCommand('underline')}
+          icon={<IconFont iconName='icon-underline' />}
+          title='UnderlineOutlined'
+        />
 
         <ToolItem
           onClick={() => execCommand('insertHorizontalRule')}

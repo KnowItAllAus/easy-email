@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdvancedType } from 'easy-email-core';
+import { BasicType } from 'easy-email-core';
 import { Stack } from 'easy-email-editor';
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
@@ -123,7 +123,7 @@ export function AccordionBlockItem() {
           return (
             <BlockMaskWrapper
               key={index}
-              type={AdvancedType.ACCORDION}
+              type={BasicType.ACCORDION}
               payload={item.payload}
             >
               <div style={{ position: 'relative' }}>

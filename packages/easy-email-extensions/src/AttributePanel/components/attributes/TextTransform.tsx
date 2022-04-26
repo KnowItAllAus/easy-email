@@ -4,7 +4,7 @@ import { SelectField } from '../../../components/Form';
 
 const options = [
   {
-    value: 'initial',
+    value: '',
     label: 'none',
   },
   {
@@ -21,16 +21,16 @@ const options = [
   },
 ];
 
-export function TextTransform({ name }: { name?: string; }) {
+export function TextTransform() {
   const { focusIdx } = useFocusIdx();
 
   return useMemo(() => {
     return (
       <SelectField
         label='Text transform'
-        name={name || `${focusIdx}.attributes.text-transform`}
+        name={`${focusIdx}.attributes.text-transform`}
         options={options}
       />
     );
-  }, [focusIdx, name]);
+  }, [focusIdx]);
 }

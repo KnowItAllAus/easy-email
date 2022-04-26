@@ -6,13 +6,12 @@ import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/at
 import { Collapse, Grid } from '@arco-design/web-react';
 import { Stack, useFocusIdx } from 'easy-email-editor';
 import { ClassName } from '../../attributes/ClassName';
-import { CollapseWrapper } from '../../attributes/CollapseWrapper';
 
 export function Wrapper() {
   const { focusIdx } = useFocusIdx();
   return (
     <AttributesPanelWrapper style={{ padding: 0 }}>
-      <CollapseWrapper defaultActiveKey={['0', '1', '2']}>
+      <Collapse defaultActiveKey={['0', '1', '2']}>
         <Collapse.Item name='0' header='Dimension'>
           <Stack vertical spacing='tight'>
             <Padding />
@@ -42,7 +41,7 @@ export function Wrapper() {
             <ClassName />
           </Grid.Col>
         </Collapse.Item>
-      </CollapseWrapper>
+      </Collapse>
     </AttributesPanelWrapper>
   );
 }

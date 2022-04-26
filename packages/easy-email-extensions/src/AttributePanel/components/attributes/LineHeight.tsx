@@ -2,14 +2,14 @@ import React from 'react';
 import { InputWithUnitField } from '../../../components/Form';
 import { useFocusIdx } from 'easy-email-editor';
 
-export function LineHeight({ name }: { name?: string; }) {
+export function LineHeight() {
   const { focusIdx } = useFocusIdx();
 
   return (
     <InputWithUnitField
       label='Line height'
       unitOptions='percent'
-      name={name || `${focusIdx}.attributes.line-height`}
+      name={`${focusIdx}.attributes.line-height`}
     />
   );
 }

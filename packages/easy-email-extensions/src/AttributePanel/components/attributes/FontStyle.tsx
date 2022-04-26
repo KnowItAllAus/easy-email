@@ -13,13 +13,13 @@ const options = [
   },
 ];
 
-export function FontStyle({ name }: { name?: string; }) {
+export function FontStyle() {
   const { focusIdx } = useFocusIdx();
 
   return (
     <RadioGroupField
       label='Font style'
-      name={name || `${focusIdx}.attributes.font-style`}
+      name={`${focusIdx}.attributes.font-style`}
       options={options}
     />
   );
