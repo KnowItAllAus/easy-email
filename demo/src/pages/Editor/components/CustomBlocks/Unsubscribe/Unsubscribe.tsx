@@ -30,12 +30,12 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       type: CustomBlocksType.UNSUBSCRIBE,
       data: {
         value: {
-          buttonText: 'Unsubscribe',
+          buttonText: '>> Unsubscribe from these emails',
         },
       },
       attributes: {
         'background-color': '#ffffff',
-        'button-text-color': '#ffffff',
+        'button-text-color': '#414141',
         'button-color': '#414141',
       },
       children: [
@@ -61,12 +61,14 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       <Button
         align='center'
         padding='15px 0px'
-        background-color={attributes['button-color']}
+        background-color='inherit'
+        // background-color={attributes['button-color']}
         color={attributes['button-text-color']}
         target='_blank'
         vertical-align='middle'
         border='none'
         text-align='center'
+        font-size='10px'
         href={'http://TB.TODO.com.au'}
       >
         {buttonText}
