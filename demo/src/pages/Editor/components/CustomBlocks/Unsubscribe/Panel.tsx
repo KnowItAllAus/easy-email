@@ -3,7 +3,9 @@ import { useFocusIdx } from 'easy-email-editor';
 import {
   AttributesPanelWrapper,
   ColorPickerField,
+  FontFamily,
   FontSize,
+  FontStyle,
   TextDecoration,
   TextField,
 } from 'easy-email-extensions';
@@ -25,6 +27,7 @@ export function Panel() {
           alignment='center'
         />
         <FontSize />
+        <FontFamily />
       </Stack>
     </AttributesPanelWrapper>
   );

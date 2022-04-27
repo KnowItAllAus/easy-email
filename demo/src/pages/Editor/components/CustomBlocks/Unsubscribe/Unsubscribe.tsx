@@ -14,6 +14,7 @@ export type IUnsubscribe = IBlockData<
   {
     'text-color': string;
     'font-size': string;
+    'font-family': string;
   },
   {
     linkText: string;
@@ -35,6 +36,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       attributes: {
         'text-color': '#6495ed',
         'font-size': '10px',
+        'font-family': 'default',
       },
       children: [
         {
@@ -62,6 +64,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         border='none'
         text-align='center'
         font-size={attributes['font-size']}
+        font-family={attributes['font-family']}
         href={
           'https://{{unsubscribe_link}}?campaignid={{campaign_id}}&user_id={{user_id}}'
         }
