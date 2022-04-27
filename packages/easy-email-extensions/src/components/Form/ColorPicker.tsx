@@ -1,9 +1,10 @@
 import { Input, Popover, PopoverProps, Space } from '@arco-design/web-react';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ColorResult, SketchPicker } from 'react-color';
+import { Stack } from 'easy-email-editor';
 import { PresetColorsContext } from '../../AttributePanel/components/provider/PresetColorsProvider';
 import { getImg } from '@extensions/AttributePanel/utils/getImg';
-import styles from './index.module.scss';
+
 export interface ColorPickerProps extends PopoverProps {
   onChange?: (val: string) => void;
   value?: string;
@@ -49,14 +50,12 @@ export function ColorPicker(props: ColorPickerProps) {
         trigger='click'
         {...props}
         content={(
-          <div className={styles.colorPicker}>
-            <SketchPicker
-              presetColors={presetColors}
-              color={color}
-              disableAlpha
-              onChangeComplete={onChangeComplete}
-            />
-          </div>
+          <SketchPicker
+            presetColors={presetColors}
+            color={color}
+            disableAlpha
+            onChangeComplete={onChangeComplete}
+          />
         )}
       >
         {children || (

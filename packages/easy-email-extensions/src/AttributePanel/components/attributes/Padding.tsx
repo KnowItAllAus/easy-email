@@ -4,16 +4,14 @@ import { useFocusIdx, Stack, useBlock, TextStyle } from 'easy-email-editor';
 import { createBlockDataByType } from 'easy-email-core';
 import { Form, useFormState } from 'react-final-form';
 import { Grid } from '@arco-design/web-react';
-import { get } from 'lodash';
 
 export interface PaddingProps {
   title?: string;
   attributeName?: 'padding' | 'inner-padding' | 'text-padding';
-  name?: string;
 }
 export function Padding(props: PaddingProps = {}) {
-  const { title = 'Padding', attributeName = 'padding', name } = props;
-  const { focusBlock, change, values } = useBlock();
+  const { title = 'Padding', attributeName = 'padding' } = props;
+  const { focusBlock, change } = useBlock();
   const { focusIdx } = useFocusIdx();
 
   const type = focusBlock && focusBlock.type;
@@ -23,19 +21,11 @@ export function Padding(props: PaddingProps = {}) {
     [type]
   );
 
-  const paddingValue: string | undefined = useMemo(() => {
-    if (name) {
-      return get(values, name);
-    }
-    return focusBlock?.attributes[attributeName];
-  }, [attributeName, focusBlock?.attributes, name, values]);
+  const paddingValue: string | undefined =
+    focusBlock?.attributes[attributeName];
 
-  const defaultPaddingValue: string | undefined = useMemo(() => {
-    if (name) {
-      return null;
-    }
-    return defaultConfig?.attributes[attributeName];
-  }, [attributeName, defaultConfig?.attributes, name]);
+  const defaultPaddingValue: string | undefined =
+    defaultConfig?.attributes[attributeName];
 
   const paddingFormValues = useMemo(() => {
     const paddingList = paddingValue?.split(' ');
@@ -56,22 +46,17 @@ export function Padding(props: PaddingProps = {}) {
 
   const onChancePadding = useCallback(
     (val: string) => {
-      if (name) {
-        change(name, val);
-      } else {
-        change(focusIdx + `.attributes[${attributeName}]`, val);
-      }
-
+      change(focusIdx + `.attributes[${attributeName}]`, val);
     },
-    [name, change, focusIdx, attributeName]
+    [focusIdx, attributeName, change]
   );
 
   return (
-    <Form<{ top: string; right: string; left: string; bottom: string; }>
+    <Form<{ top: string; right: string; left: string; bottom: string }>
       initialValues={paddingFormValues}
       subscription={{ submitting: true, pristine: true }}
       enableReinitialize
-      onSubmit={() => { }}
+      onSubmit={() => {}}
     >
       {() => {
         return (
@@ -105,7 +90,7 @@ export function Padding(props: PaddingProps = {}) {
   );
 }
 
-const PaddingChangeWrapper: React.FC<{ onChange: (val: string) => void; }> = (
+const PaddingChangeWrapper: React.FC<{ onChange: (val: string) => void }> = (
   props
 ) => {
   const {

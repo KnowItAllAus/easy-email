@@ -6,14 +6,11 @@ import { BasicType } from '@core/constants';
 import { kebabCase, snakeCase } from 'lodash';
 
 describe('Test parseXml', () => {
-  const componentNames = Object.keys(componentsMap).filter(item => item !== 'MjmlBlock');
+  const componentNames = Object.keys(componentsMap);
   it.each(componentNames)('$name is valid block', (componentName) => {
-
-
     const Com = componentsMap[componentName];
     const type = snakeCase(kebabCase(componentName)).toUpperCase();
     const block = BlockManager.getBlockByType(BasicType[type]);
-
 
     expect(parseReactBlockToBlockData(<Com />)).toEqual(block?.create());
   });

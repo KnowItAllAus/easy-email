@@ -10,7 +10,6 @@ import { Stack } from '@demo/components/Stack';
 import { Loading } from '@demo/components/loading';
 import { history } from '@demo/utils/history';
 import { pushEvent } from '@demo/utils/pushEvent';
-import templates from '@demo/config/templates.json';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -35,16 +34,15 @@ export default function Home() {
         </Button>
       }
     >
-      <>
-        <Stack>
-          {[...templates, ...list].map((item) => (
-            <CardItem data={item} key={item.article_id} />
-          ))}
-        </Stack>
+      <div style={{ minHeight: 400 }}>
         <Loading loading={loading}>
-          Load user template
+          <Stack>
+            {list.map((item) => (
+              <CardItem data={item} key={item.article_id} />
+            ))}
+          </Stack>
         </Loading>
-      </>
+      </div>
     </Frame>
   );
 }

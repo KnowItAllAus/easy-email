@@ -1,5 +1,4 @@
 import { BasicType } from '@core/constants';
-import { AdvancedType } from '../../constants';
 import {
   getChildIdx,
   getIndexByIdx,
@@ -34,6 +33,6 @@ describe('Test parseXml', () => {
   it('test getValidChildBlocks', () => {
     expect(
       getValidChildBlocks(BasicType.SECTION).map((item) => item.type)
-    ).toEqual([BasicType.COLUMN, BasicType.GROUP, BasicType.RAW, AdvancedType.GROUP, AdvancedType.COLUMN]);
+    ).toEqual([BasicType.COLUMN, BasicType.GROUP, BasicType.RAW]);
   });
 });

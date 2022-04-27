@@ -13,7 +13,6 @@ import {
 } from '@extensions/components/Form';
 import { Collapse, Grid, Space } from '@arco-design/web-react';
 import { ClassName } from '../../attributes/ClassName';
-import { CollapseWrapper } from '../../attributes/CollapseWrapper';
 
 const positionOptions = [
   {
@@ -47,7 +46,7 @@ export function Accordion() {
 
   return (
     <AttributesPanelWrapper>
-      <CollapseWrapper defaultActiveKey={['0', '1', '2']}>
+      <Collapse defaultActiveKey={['0', '1', '2']}>
         <Collapse.Item name='0' header='Setting'>
           <Space direction='vertical'>
             <Grid.Row>
@@ -120,7 +119,7 @@ export function Accordion() {
             <ClassName />
           </Grid.Col>
         </Collapse.Item>
-      </CollapseWrapper>
+      </Collapse>
     </AttributesPanelWrapper>
   );
 }

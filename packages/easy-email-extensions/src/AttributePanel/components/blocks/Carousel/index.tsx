@@ -15,7 +15,6 @@ import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/at
 import { Align } from '@extensions/AttributePanel/components/attributes/Align';
 import { ICarousel } from 'easy-email-core';
 import { ClassName } from '../../attributes/ClassName';
-import { CollapseWrapper } from '../../attributes/CollapseWrapper';
 
 const options = [
   {
@@ -32,7 +31,7 @@ export function Carousel() {
   const { focusIdx } = useFocusIdx();
   return (
     <AttributesPanelWrapper style={{ padding: 0 }}>
-      <CollapseWrapper defaultActiveKey={['0', '1', '2', '3', '4']}>
+      <Collapse defaultActiveKey={['0', '1', '2', '3', '4']}>
         <Collapse.Item name='0' header='Dimension'>
           <Space direction='vertical'>
             <InputWithUnitField
@@ -132,7 +131,7 @@ export function Carousel() {
             <ClassName />
           </Grid.Col>
         </Collapse.Item>
-      </CollapseWrapper>
+      </Collapse>
     </AttributesPanelWrapper>
   );
 }

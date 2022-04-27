@@ -14,7 +14,6 @@ import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/at
 import { Collapse, Grid, Space } from '@arco-design/web-react';
 import { Border } from '@extensions/AttributePanel/components/attributes/Border';
 import { Stack, useEditorProps, useFocusIdx } from 'easy-email-editor';
-import { CollapseWrapper } from '../../attributes/CollapseWrapper';
 
 export function Image() {
   const { focusIdx } = useFocusIdx();
@@ -22,7 +21,7 @@ export function Image() {
 
   return (
     <AttributesPanelWrapper style={{ padding: 0 }}>
-      <CollapseWrapper defaultActiveKey={['0', '1', '2', '3', '4']}>
+      <Collapse defaultActiveKey={['0', '1', '2', '3', '4']}>
         <Collapse.Item name='1' header='Setting'>
           <Stack vertical spacing='tight'>
             <ImageUploaderField
@@ -87,7 +86,7 @@ export function Image() {
             />
           </Grid.Col>
         </Collapse.Item>
-      </CollapseWrapper>
+      </Collapse>
     </AttributesPanelWrapper>
   );
 }

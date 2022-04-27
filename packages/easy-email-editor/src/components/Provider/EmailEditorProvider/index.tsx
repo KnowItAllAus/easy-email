@@ -11,7 +11,6 @@ import { Config, FormApi, FormState } from 'final-form';
 import { useEffect, useState } from 'react';
 import setFieldTouched from 'final-form-set-field-touched';
 import { FocusBlockLayoutProvider } from '../FocusBlockLayoutProvider';
-import { PreviewEmailProvider } from '../PreviewEmailProvider';
 
 export interface EmailEditorProviderProps<T extends IEmailTemplate = any>
   extends PropsProviderProps {
@@ -30,7 +29,7 @@ export interface EmailEditorProviderProps<T extends IEmailTemplate = any>
 export const EmailEditorProvider = <T extends any>(
   props: EmailEditorProviderProps & T
 ) => {
-  const { data, children, onSubmit = () => { }, validationSchema } = props;
+  const { data, children, onSubmit = () => {}, validationSchema } = props;
 
   const initialValues = useMemo(() => {
     return {
@@ -54,20 +53,17 @@ export const EmailEditorProvider = <T extends any>(
       {() => (
         <>
           <PropsProvider {...props}>
-            <PreviewEmailProvider>
-              <RecordProvider>
-                <BlocksProvider>
-                  <HoverIdxProvider>
-                    <ScrollProvider>
-                      <FocusBlockLayoutProvider>
-                        <FormWrapper children={children} />
-                      </FocusBlockLayoutProvider>
-                    </ScrollProvider>
-                  </HoverIdxProvider>
-                </BlocksProvider>
-              </RecordProvider>
-            </PreviewEmailProvider>
-
+            <RecordProvider>
+              <BlocksProvider>
+                <HoverIdxProvider>
+                  <ScrollProvider>
+                    <FocusBlockLayoutProvider>
+                      <FormWrapper children={children} />
+                    </FocusBlockLayoutProvider>
+                  </ScrollProvider>
+                </HoverIdxProvider>
+              </BlocksProvider>
+            </RecordProvider>
           </PropsProvider>
           <RegisterFields />
         </>
@@ -90,7 +86,7 @@ function FormWrapper({
 
 const RegisterFields = React.memo(() => {
   const { touched } = useFormState<IEmailTemplate>();
-  const [touchedMap, setTouchedMap] = useState<{ [key: string]: boolean; }>({});
+  const [touchedMap, setTouchedMap] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     if (touched) {
@@ -114,7 +110,7 @@ const RegisterFields = React.memo(() => {
   );
 });
 
-function RegisterField({ name }: { name: string; }) {
+function RegisterField({ name }: { name: string }) {
   useField(name);
   return <></>;
 }

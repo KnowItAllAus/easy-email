@@ -49,16 +49,16 @@ const options = [
   },
 ];
 
-export function FontWeight({ name }: { name?: string; }) {
+export function FontWeight() {
   const { focusIdx } = useFocusIdx();
 
   return useMemo(() => {
     return (
       <SelectField
         label='Font weight'
-        name={name || `${focusIdx}.attributes.font-weight`}
+        name={`${focusIdx}.attributes.font-weight`}
         options={options}
       />
     );
-  }, [focusIdx, name]);
+  }, [focusIdx]);
 }

@@ -61,7 +61,6 @@ export function WarnAboutUnsavedChanges(props: WarnAboutUnsavedChangesProps) {
   }, []);
 
   const onOk = useCallback(() => {
-    props.onBeforeConfirm?.();
     callbackRef.current?.(true);
   }, []);
 

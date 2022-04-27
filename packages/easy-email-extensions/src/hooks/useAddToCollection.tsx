@@ -1,4 +1,4 @@
-import { AddToCollection } from '@extensions/components/Form/AddToCollection';
+import { AddToCollection } from '@extensions/components/AddToCollection';
 import React from 'react';
 import { useMemo, useState } from 'react';
 

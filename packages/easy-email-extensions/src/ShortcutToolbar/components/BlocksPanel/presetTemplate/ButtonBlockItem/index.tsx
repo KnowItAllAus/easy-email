@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack } from 'easy-email-editor';
-import { AdvancedType, IButton, RecursivePartial } from 'easy-email-core';
+import { BasicType, IButton, RecursivePartial } from 'easy-email-core';
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
 import { Picture } from '@extensions/ShortcutToolbar/components/Picture';
@@ -101,7 +101,7 @@ export function ButtonBlockItem() {
             <Stack key={index} alignment='center'>
               <Stack.Item fill>
                 <BlockMaskWrapper
-                  type={AdvancedType.BUTTON}
+                  type={BasicType.BUTTON}
                   payload={
                     {
                       ...item.payload,
