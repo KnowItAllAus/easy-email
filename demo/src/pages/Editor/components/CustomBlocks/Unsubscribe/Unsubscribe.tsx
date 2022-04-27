@@ -13,6 +13,7 @@ const { Button } = components;
 export type IUnsubscribe = IBlockData<
   {
     'text-color': string;
+    'font-size': string;
   },
   {
     linkText: string;
@@ -33,6 +34,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       },
       attributes: {
         'text-color': '#6495ed',
+        'font-size': '10px',
       },
       children: [
         {
@@ -59,8 +61,10 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         vertical-align='middle'
         border='none'
         text-align='center'
-        font-size='10px'
-        href={'https://{{unsubscribe_link}}?campaignid={{campaign_id}}&user_id={{user_id}}'}
+        font-size={attributes['font-size']}
+        href={
+          'https://{{unsubscribe_link}}?campaignid={{campaign_id}}&user_id={{user_id}}'
+        }
       >
         {linkText}
       </Button>
