@@ -14,6 +14,7 @@ import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
 import { SectionDraggable, SectionType } from './layout/SectionDraggable';
 import { GroupDraggable } from './layout/GroupDraggable';
 import { ColumnDraggable } from './layout/ColumnDraggable';
+import { BlockAvatarWrapper } from '@';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -62,5 +63,6 @@ export const DraggableFactory = ({
       return <ColumnDraggable>{children}</ColumnDraggable>;
   }
 
-  return <>{children}</>;
+  return <BlockAvatarWrapper type={type}>{children}</BlockAvatarWrapper>
+
 };
