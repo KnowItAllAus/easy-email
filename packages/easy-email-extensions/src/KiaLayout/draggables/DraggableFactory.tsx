@@ -1,5 +1,4 @@
 import { BasicType } from 'easy-email-core';
-import { BlockAvatarWrapper } from 'easy-email-editor';
 import React from 'react';
 import { AccordianDraggable } from './content/AccordianDraggable';
 import { ButtonDraggable } from './content/ButtonDraggable';
@@ -11,6 +10,7 @@ import { NavbarDraggable } from './content/NavbarDraggable';
 import { SocialDraggable } from './content/SocialDraggable';
 import { SpacerDraggable } from './content/SpacerDraggable';
 import { TextDraggable } from './content/TextDraggable';
+import { DraggableWrapper } from './DraggableWrapper';
 import { ColumnDraggable } from './layout/ColumnDraggable';
 import { GroupDraggable } from './layout/GroupDraggable';
 import { SectionDraggable, SectionType } from './layout/SectionDraggable';
@@ -63,6 +63,5 @@ export const DraggableFactory = ({
       return <ColumnDraggable>{children}</ColumnDraggable>;
   }
 
-  return <BlockAvatarWrapper type={type}>{children}</BlockAvatarWrapper>
-
+  return <DraggableWrapper type={type} payload={null}>{children}</DraggableWrapper>;
 };
