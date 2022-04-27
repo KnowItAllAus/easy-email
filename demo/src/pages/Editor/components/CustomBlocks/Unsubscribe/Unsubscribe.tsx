@@ -12,9 +12,9 @@ const { Button } = components;
 
 export type IUnsubscribe = IBlockData<
   {
-    'background-color': string;
-    'button-color': string;
-    'button-text-color': string;
+    //'background-color': string;
+    //'button-color': string;
+    'text-color': string;
   },
   {
     buttonText: string;
@@ -30,13 +30,13 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       type: CustomBlocksType.UNSUBSCRIBE,
       data: {
         value: {
-          buttonText: '>> Unsubscribe from these emails',
+          buttonText: 'Unsubscribe from these emails',
         },
       },
       attributes: {
-        'background-color': '#ffffff',
-        'button-text-color': '#414141',
-        'button-color': '#414141',
+        //'background-color': '#ffffff',
+        'text-color': '#6495ed',
+        //'button-color': '#414141',
       },
       children: [
         {
@@ -53,17 +53,17 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
     };
     return merge(defaultData, payload);
   },
-  render: (data, idx, mode, context, dataSource) => {
+  render: (data) => {
     const { buttonText } = data.data.value;
     const attributes = data.attributes;
 
     return (
       <Button
         align='center'
-        padding='15px 0px'
+        padding='2px'
         background-color='inherit'
         // background-color={attributes['button-color']}
-        color={attributes['button-text-color']}
+        color={attributes['text-color']}
         target='_blank'
         vertical-align='middle'
         border='none'

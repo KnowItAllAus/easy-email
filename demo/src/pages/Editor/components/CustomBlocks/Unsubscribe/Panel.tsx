@@ -13,12 +13,12 @@ export function Panel() {
     <AttributesPanelWrapper style={{ padding: '20px' }}>
       <Stack vertical>
         <TextField
-          label='Button text'
-          name={`${focusIdx}.data.value.buttonText`}
+          label='Text'
+          name={`${focusIdx}.data.value.text`}
           inline
           alignment='center'
         />
-        <ColorPickerField
+        {/* <ColorPickerField
           label='Background color'
           name={`${focusIdx}.attributes.background-color`}
           inline
@@ -30,10 +30,10 @@ export function Panel() {
           name={`${focusIdx}.attributes.button-color`}
           inline
           alignment='center'
-        />
+        /> */}
         <ColorPickerField
-          label='Button text color'
-          name={`${focusIdx}.attributes.button-text-color`}
+          label='Text color'
+          name={`${focusIdx}.attributes.text-color`}
           inline
           alignment='center'
         />
