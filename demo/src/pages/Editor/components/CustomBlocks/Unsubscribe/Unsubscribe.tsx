@@ -15,11 +15,18 @@ export type IUnsubscribe = IBlockData<
     'text-color': string;
     'font-size': string;
     'font-family': string;
+    'text-decoration': string;
   },
   {
     linkText: string;
   }
 >;
+
+const mergeTags = {
+  unsubscribeLink: '{{unsubscribe_link}}',
+  campaignId: '{{campaign_id}}',
+  userId: '{{user_id}}',
+};
 
 export const Unsubscribe = createCustomBlock<IUnsubscribe>({
   name: 'Unsubscribe',
@@ -37,6 +44,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         'text-color': '#6495ed',
         'font-size': '10px',
         'font-family': 'default',
+        'text-decoration': 'underline',
       },
       children: [
         {
@@ -65,9 +73,8 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         text-align='center'
         font-size={attributes['font-size']}
         font-family={attributes['font-family']}
-        href={
-          'https://{{unsubscribe_link}}?campaignid={{campaign_id}}&user_id={{user_id}}'
-        }
+        text-decoration={attributes['text-decoration']}
+        href={`${mergeTags.unsubscribeLink}campaignid=${mergeTags.campaignId}&user_id=${mergeTags.userId}`}
       >
         {linkText}
       </Button>

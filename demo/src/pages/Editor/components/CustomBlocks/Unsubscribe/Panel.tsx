@@ -4,10 +4,8 @@ import {
   AttributesPanelWrapper,
   ColorPickerField,
   FontFamily,
-  FontSize,
-  FontStyle,
-  TextDecoration,
-  TextField,
+  FontSize, TextDecoration,
+  TextField
 } from 'easy-email-extensions';
 import React from 'react';
 
@@ -28,6 +26,7 @@ export function Panel() {
         />
         <FontSize />
         <FontFamily />
+        <TextDecoration />
       </Stack>
     </AttributesPanelWrapper>
   );
