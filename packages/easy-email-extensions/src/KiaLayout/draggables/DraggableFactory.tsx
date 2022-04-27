@@ -1,20 +1,20 @@
-import React from 'react';
 import { BasicType } from 'easy-email-core';
+import { BlockAvatarWrapper } from 'easy-email-editor';
+import React from 'react';
+import { AccordianDraggable } from './content/AccordianDraggable';
 import { ButtonDraggable } from './content/ButtonDraggable';
+import { CarouselDraggable } from './content/CarouselDraggable';
+import { DividerDraggable } from './content/DividerDraggable';
 import { HeroDraggable } from './content/HeroDraggable';
 import { ImageDraggable } from './content/ImageDraggable';
 import { NavbarDraggable } from './content/NavbarDraggable';
-import { TextDraggable } from './content/TextDraggable';
-import { SpacerDraggable } from './content/SpacerDraggable';
-import { DividerDraggable } from './content/DividerDraggable';
-import { AccordianDraggable } from './content/AccordianDraggable';
-import { CarouselDraggable } from './content/CarouselDraggable';
 import { SocialDraggable } from './content/SocialDraggable';
-import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
-import { SectionDraggable, SectionType } from './layout/SectionDraggable';
-import { GroupDraggable } from './layout/GroupDraggable';
+import { SpacerDraggable } from './content/SpacerDraggable';
+import { TextDraggable } from './content/TextDraggable';
 import { ColumnDraggable } from './layout/ColumnDraggable';
-import { BlockAvatarWrapper } from '@';
+import { GroupDraggable } from './layout/GroupDraggable';
+import { SectionDraggable, SectionType } from './layout/SectionDraggable';
+import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
