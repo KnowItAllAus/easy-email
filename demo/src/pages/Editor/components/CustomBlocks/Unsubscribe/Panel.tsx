@@ -18,19 +18,6 @@ export function Panel() {
           inline
           alignment='center'
         />
-        {/* <ColorPickerField
-          label='Background color'
-          name={`${focusIdx}.attributes.background-color`}
-          inline
-          alignment='center'
-        />
-
-        <ColorPickerField
-          label='Button color'
-          name={`${focusIdx}.attributes.button-color`}
-          inline
-          alignment='center'
-        /> */}
         <ColorPickerField
           label='Text color'
           name={`${focusIdx}.attributes.text-color`}

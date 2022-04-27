@@ -60,7 +60,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         border='none'
         text-align='center'
         font-size='10px'
-        href={'http://TB.TODO.com.au'}
+        href={'https://{{unsubscribe_link}}?campaignid={{campaign_id}}&user_id={{user_id}}'}
       >
         {linkText}
       </Button>
