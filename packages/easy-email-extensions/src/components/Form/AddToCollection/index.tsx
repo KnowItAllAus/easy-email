@@ -3,7 +3,7 @@ import { Stack, useBlock, useEditorProps } from 'easy-email-editor';
 import React from 'react';
 import { Form } from 'react-final-form';
 import { v4 as uuidv4 } from 'uuid';
-import { ImageUploaderField, TextAreaField, TextField } from '../Form';
+import { ImageUploaderField, TextAreaField, TextField } from '..';
 
 export const AddToCollection: React.FC<{
   visible: boolean;
