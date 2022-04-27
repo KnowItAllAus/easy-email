@@ -14,7 +14,7 @@ export function Panel() {
       <Stack vertical>
         <TextField
           label='Text'
-          name={`${focusIdx}.data.value.text`}
+          name={`${focusIdx}.data.value.linkText`}
           inline
           alignment='center'
         />

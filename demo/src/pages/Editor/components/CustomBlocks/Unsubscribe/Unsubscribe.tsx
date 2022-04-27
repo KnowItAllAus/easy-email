@@ -12,12 +12,10 @@ const { Button } = components;
 
 export type IUnsubscribe = IBlockData<
   {
-    //'background-color': string;
-    //'button-color': string;
     'text-color': string;
   },
   {
-    buttonText: string;
+    linkText: string;
   }
 >;
 
@@ -30,23 +28,17 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
       type: CustomBlocksType.UNSUBSCRIBE,
       data: {
         value: {
-          buttonText: 'Unsubscribe from these emails',
+          linkText: 'Unsubscribe from these emails',
         },
       },
       attributes: {
-        //'background-color': '#ffffff',
         'text-color': '#6495ed',
-        //'button-color': '#414141',
       },
       children: [
         {
           type: BasicType.TEXT,
           children: [],
-          data: {
-            value: {
-              content: 'custom block title',
-            },
-          },
+          data: { value: {} },
           attributes: {},
         },
       ],
@@ -54,7 +46,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
     return merge(defaultData, payload);
   },
   render: (data) => {
-    const { buttonText } = data.data.value;
+    const { linkText } = data.data.value;
     const attributes = data.attributes;
 
     return (
@@ -62,7 +54,6 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         align='center'
         padding='2px'
         background-color='inherit'
-        // background-color={attributes['button-color']}
         color={attributes['text-color']}
         target='_blank'
         vertical-align='middle'
@@ -71,7 +62,7 @@ export const Unsubscribe = createCustomBlock<IUnsubscribe>({
         font-size='10px'
         href={'http://TB.TODO.com.au'}
       >
-        {buttonText}
+        {linkText}
       </Button>
     );
   },
