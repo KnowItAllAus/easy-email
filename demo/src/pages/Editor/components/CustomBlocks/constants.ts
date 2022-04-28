@@ -1,4 +1,3 @@
 export enum CustomBlocksType {
-  PRODUCT_RECOMMENDATION = 'product_recommendation',
-  UNSUBSCRIBE = 'unsubscribe'
+  PRODUCT_RECOMMENDATION = 'product_recommendation'
 }

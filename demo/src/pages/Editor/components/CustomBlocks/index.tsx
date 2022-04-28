@@ -9,18 +9,13 @@ import {
   ProductRecommendation
 } from './ProductRecommendation';
 import { Example as ProductRecommendationExample } from './ProductRecommendation/Example';
-import {
-  Example as UnsubscribeExample, Panel as UnsubscribePanel, Unsubscribe
-} from './Unsubscribe';
 
 BlockManager.registerBlocks({
-  ProductRecommendation: ProductRecommendation,
-  Unsubscribe: Unsubscribe,
+  ProductRecommendation: ProductRecommendation
 });
 
 BlockAttributeConfigurationManager.add({
-  [CustomBlocksType.PRODUCT_RECOMMENDATION]: ProductRecommendationPanel,
-  [CustomBlocksType.UNSUBSCRIBE]: UnsubscribePanel,
+  [CustomBlocksType.PRODUCT_RECOMMENDATION]: ProductRecommendationPanel
 });
 
 BlockMarketManager.addCategories([
@@ -35,12 +30,6 @@ BlockMarketManager.addCategories([
         component: ProductRecommendationExample,
         thumbnail:
           'https://assets.maocanhua.cn/c160738b-db01-4081-89e5-e35bd3a34470-image.png',
-      },
-      {
-        type: CustomBlocksType.UNSUBSCRIBE,
-        title:Unsubscribe.name,
-        description: 'Unsubcribe to mailing list',
-        component: UnsubscribeExample,
       },
     ],
   },
