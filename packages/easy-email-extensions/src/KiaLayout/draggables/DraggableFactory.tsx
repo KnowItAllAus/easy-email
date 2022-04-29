@@ -1,19 +1,20 @@
-import React from 'react';
 import { BasicType } from 'easy-email-core';
+import React from 'react';
+import { AccordianDraggable } from './content/AccordianDraggable';
 import { ButtonDraggable } from './content/ButtonDraggable';
+import { CarouselDraggable } from './content/CarouselDraggable';
+import { DividerDraggable } from './content/DividerDraggable';
 import { HeroDraggable } from './content/HeroDraggable';
 import { ImageDraggable } from './content/ImageDraggable';
 import { NavbarDraggable } from './content/NavbarDraggable';
-import { TextDraggable } from './content/TextDraggable';
-import { SpacerDraggable } from './content/SpacerDraggable';
-import { DividerDraggable } from './content/DividerDraggable';
-import { AccordianDraggable } from './content/AccordianDraggable';
-import { CarouselDraggable } from './content/CarouselDraggable';
 import { SocialDraggable } from './content/SocialDraggable';
-import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
-import { SectionDraggable, SectionType } from './layout/SectionDraggable';
-import { GroupDraggable } from './layout/GroupDraggable';
+import { SpacerDraggable } from './content/SpacerDraggable';
+import { TextDraggable } from './content/TextDraggable';
+import { DraggableWrapper } from './DraggableWrapper';
 import { ColumnDraggable } from './layout/ColumnDraggable';
+import { GroupDraggable } from './layout/GroupDraggable';
+import { SectionDraggable, SectionType } from './layout/SectionDraggable';
+import { WrapperElementDraggable } from './layout/WrapperElementDraggable';
 
 interface IBlockMaskWrapperFactoryProps {
   type: BasicType;
@@ -62,5 +63,5 @@ export const DraggableFactory = ({
       return <ColumnDraggable>{children}</ColumnDraggable>;
   }
 
-  return <>{children}</>;
+  return <DraggableWrapper type={type} payload={null}>{children}</DraggableWrapper>;
 };

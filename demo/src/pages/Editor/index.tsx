@@ -32,9 +32,14 @@ import { FormApi } from 'final-form';
 import { UserStorage } from '@demo/utils/user-storage';
 
 import { useCollection } from './components/useCollection';
-import mustache from 'mustache';
-import { JsonToMjml } from 'easy-email-core';
-import { BlockMarketManager, KiaLayout } from 'easy-email-extensions';
+import {
+  AdvancedType,
+  BasicType,
+  getPageIdx,
+  IBlockData,
+  JsonToMjml,
+} from 'easy-email-core';
+import { BlockMarketManager, KiaLayout, SimpleLayout } from 'easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
 // Register external blocks
@@ -47,6 +52,7 @@ import purpleTheme from '@arco-themes/react-easy-email-theme-purple/css/arco.css
 import greenTheme from '@arco-themes/react-easy-email-theme-green/css/arco.css?inline';
 import { useState } from 'react';
 import { testMergeTags as mergeTags } from './testMergeTags';
+import mustache from 'mustache';
 
 const imageCompression = import('browser-image-compression');
 
