@@ -1,4 +1,11 @@
-import { Collapse, Grid, InputProps, Popover, Space } from '@arco-design/web-react';
+import {
+  Collapse,
+  Grid,
+  Input,
+  InputProps,
+  Popover,
+  Space,
+} from '@arco-design/web-react';
 import { FontFamily, MergeTags } from '@extensions/AttributePanel';
 import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/attributes/AttributesPanelWrapper';
 import {
@@ -16,21 +23,27 @@ import {
 } from 'easy-email-editor';
 import React from 'react';
 import { Button as ArcoButton } from '@arco-design/web-react';
+import { PropsProvider } from '@/components/Provider/PropsProvider';
 //import { FontFamily } from '../../attributes/FontFamily';
 
 export function Page() {
   const { focusIdx } = useFocusIdx();
   const { mergeTags } = useEditorProps();
 
+  const testProps = {
+    value: '',
+  };
+
   //.. TB DEBUG STUBs
   const onChange = (val: string) => {
-    console.log(`on change ${val}`);
-  }
+    testProps.value = val;
+    console.log(`on change ${testProps.value}`);
+  };
 
-  const props = {
-    value: '',
-    onChange: (value: string, e: any) => {}
-  } as InputProps;
+  // const props = {
+  //   value: '',
+  //   onChange: (value: string, e: any) => {},
+  // } as InputProps;
 
   if (!focusIdx) return null;
   return (
@@ -39,17 +52,22 @@ export function Page() {
         <Collapse defaultActiveKey={['0', '1']}>
           <Collapse.Item name="0" header="Email Setting">
             <Space direction="vertical">
-              <TextField label="Subject" name={'subject'} inline />
+              <Input
+                style={{ flex: 1 }}
+                value={testProps.value}
+                onChange={onChange}
+                name="TB DEBUG"
+              />
+
               {mergeTags && (
                 <Popover
                   trigger="click"
-                  content={
-                    <MergeTags value={''} onChange={onChange} />
-                  }
+                  content={<MergeTags value={testProps.value} onChange={onChange} />}
                 >
                   <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
                 </Popover>
               )}
+              <TextField label="Subject" name={'subject'} inline />
               <TextField label="SubTitle" name={'subTitle'} inline />
               <InputWithUnitField
                 label="Width"
