@@ -52,7 +52,7 @@ export const TextAreaField = enhancer<
 
 export const NumberField = enhancer<
   InputNumberProps,
-  Required<ArcoInputProps>['onChange']
+  Required<InputNumberProps>['onChange']
 >(InputNumber, (e) => e);
 
 export const SliderField = enhancer<
