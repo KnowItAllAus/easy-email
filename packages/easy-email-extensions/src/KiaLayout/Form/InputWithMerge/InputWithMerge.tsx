@@ -1,5 +1,5 @@
-import { IconFont } from '@/components/IconFont';
-import { useEditorProps } from '@/hooks/useEditorProps';
+
+import { IconFont, useEditorProps } from 'easy-email-editor';
 import {
   Button as ArcoButton, Input as ArcoInput,
   InputProps as ArcoInputProps,
