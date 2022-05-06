@@ -28,7 +28,6 @@ import { Dayjs } from 'dayjs';
 import { InlineText, InlineTextProps } from './InlineTextField';
 import { AutoCompleteProps, AutoComplete } from './AutoComplete';
 import { InputSearchProps } from '@arco-design/web-react/es/Input';
-import { InputWithMerge, InputWithMergeProps } from './InputWithMerge';
 export { RichTextField } from './RichTextField';
 
 export const TextField = enhancer<
@@ -55,11 +54,6 @@ export const NumberField = enhancer<
   InputNumberProps,
   Required<ArcoInputProps>['onChange']
 >(InputNumber, (e) => e);
-
-export const TextWithMergeField = enhancer<
-  InputWithMergeProps,
-  Required<ArcoInputProps>['onChange']
->(InputWithMerge, (url: string) => url);
 
 export const SliderField = enhancer<
   SliderProps,

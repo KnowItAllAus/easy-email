@@ -1,4 +1,4 @@
-import { Page } from '../../../KiaLayout/AttributePanels/Page';
+import { Page } from '../../../KiaLayout/AttributePanels/Page/Page';
 import { Section } from './Section';
 import { Column } from './Column';
 import { Text } from './Text';

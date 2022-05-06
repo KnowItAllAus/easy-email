@@ -31,9 +31,9 @@ export function InputWithMerge(props: InputWithMergeProps) {
     [propsOnChange]
   );
 
-  const onMergeSelect = (mergeTag: string) => {
+  const onMergeSelect = useCallback((mergeTag: string) => {
     setCombinedValue(`${value}${mergeTag}`);
-  };
+  }, [value]);
 
   const onKeyDown = useCallback(
     (ev: React.KeyboardEvent<HTMLInputElement>) => {
