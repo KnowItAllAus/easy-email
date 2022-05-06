@@ -13,6 +13,7 @@ import {
   InputWithUnitField,
   TextAreaField,
   TextField,
+  TextWithMergeField,
 } from '@extensions/components/Form';
 import { AddFont } from '@extensions/components/Form/AddFont';
 import {
@@ -30,15 +31,15 @@ export function Page() {
   const { focusIdx } = useFocusIdx();
   const { mergeTags } = useEditorProps();
 
-  const testProps = {
-    value: '',
-  };
+  // const testProps = {
+  //   value: '',
+  // };
 
-  //.. TB DEBUG STUBs
-  const onChange = (val: string) => {
-    testProps.value = val;
-    console.log(`on change ${testProps.value}`);
-  };
+  // //.. TB DEBUG STUBs
+  // const onChange = (val: string) => {
+  //   testProps.value = val;
+  //   console.log(`on change ${testProps.value}`);
+  // };
 
   // const props = {
   //   value: '',
@@ -52,7 +53,7 @@ export function Page() {
         <Collapse defaultActiveKey={['0', '1']}>
           <Collapse.Item name="0" header="Email Setting">
             <Space direction="vertical">
-              <Input
+              {/* <Input
                 style={{ flex: 1 }}
                 value={testProps.value}
                 onChange={onChange}
@@ -66,7 +67,8 @@ export function Page() {
                 >
                   <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
                 </Popover>
-              )}
+              )} */}
+              <TextWithMergeField label="TB DEBUG" name="tb_debug" inline />
               <TextField label="Subject" name={'subject'} inline />
               <TextField label="SubTitle" name={'subTitle'} inline />
               <InputWithUnitField
