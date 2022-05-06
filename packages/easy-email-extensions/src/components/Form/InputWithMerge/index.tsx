@@ -4,7 +4,7 @@ import {
   Input as ArcoInput,
   InputProps as ArcoInputProps,
   Popover,
-  Button as ArcoButton
+  Button as ArcoButton,
 } from '@arco-design/web-react';
 import { MergeTags } from '@extensions/AttributePanel';
 import React, { useCallback } from 'react';
@@ -63,19 +63,21 @@ export function InputWithMerge(props: InputWithMergeProps) {
 
   return (
     <>
-    <ArcoInput
-      {...{ ...props, quickchange: undefined }}
-      onChange={(value) => onChange(value)}
-      onKeyDown={onKeyDown}
-    />
-    {mergeTags && (
-      <Popover
-        trigger="click"
-        content={<MergeTags value={value} onChange={onChange} />}
-      >
-        <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
-      </Popover>
-    )}
+      <div style={{ flex: 1, display: 'flex' }}>
+        <ArcoInput
+          {...{ ...props, quickchange: undefined }}
+          onChange={(value) => onChange(value)}
+          onKeyDown={onKeyDown}
+        />
+        {mergeTags && (
+          <Popover
+            trigger="click"
+            content={<MergeTags value={value} onChange={onChange} />}
+          >
+            <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
+          </Popover>
+        )}
+      </div>
     </>
   );
 }

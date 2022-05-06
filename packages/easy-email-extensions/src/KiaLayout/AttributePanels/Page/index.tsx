@@ -1,30 +1,23 @@
 import {
   Collapse,
-  Grid,
-  Input,
-  InputProps,
-  Popover,
-  Space,
+  Grid, Space
 } from '@arco-design/web-react';
-import { FontFamily, MergeTags } from '@extensions/AttributePanel';
+import { FontFamily } from '@extensions/AttributePanel';
 import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/attributes/AttributesPanelWrapper';
 import {
   ColorPickerField,
   InputWithUnitField,
   TextAreaField,
   TextField,
-  TextWithMergeField,
+  TextWithMergeField
 } from '@extensions/components/Form';
 import { AddFont } from '@extensions/components/Form/AddFont';
 import {
-  IconFont,
   Stack,
   useEditorProps,
-  useFocusIdx,
+  useFocusIdx
 } from 'easy-email-editor';
 import React from 'react';
-import { Button as ArcoButton } from '@arco-design/web-react';
-import { PropsProvider } from '@/components/Provider/PropsProvider';
 //import { FontFamily } from '../../attributes/FontFamily';
 
 export function Page() {
@@ -68,8 +61,8 @@ export function Page() {
                   <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
                 </Popover>
               )} */}
-              <TextWithMergeField label="TB DEBUG" name="tb_debug" inline />
-              <TextField label="Subject" name={'subject'} inline />
+              <TextWithMergeField label="Subject" name="subject" inline />
+              {/* <TextField label="Subject" name={'subject'} inline /> */}
               <TextField label="SubTitle" name={'subTitle'} inline />
               <InputWithUnitField
                 label="Width"
