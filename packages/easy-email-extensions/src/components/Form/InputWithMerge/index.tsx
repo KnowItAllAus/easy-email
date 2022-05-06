@@ -1,13 +1,12 @@
 import { IconFont } from '@/components/IconFont';
 import { useEditorProps } from '@/hooks/useEditorProps';
 import {
-  Input as ArcoInput,
+  Button as ArcoButton, Input as ArcoInput,
   InputProps as ArcoInputProps,
-  Popover,
-  Button as ArcoButton,
+  Popover
 } from '@arco-design/web-react';
 import { MergeTags } from '@extensions/AttributePanel';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 
 export interface InputWithMergeProps extends Omit<ArcoInputProps, 'onChange'> {
   quickchange?: boolean;
@@ -16,13 +15,14 @@ export interface InputWithMergeProps extends Omit<ArcoInputProps, 'onChange'> {
 }
 
 export function InputWithMerge(props: InputWithMergeProps) {
-  const {
+  let {
     quickchange,
     value = '',
     onKeyDown: onPropsKeyDown,
     onChange: propsOnChange,
   } = props;
   const { mergeTags } = useEditorProps();
+  const [combinedValue, setCombinedValue] = useState(value);
 
   const onChange = useCallback(
     (val: string) => {
@@ -30,6 +30,10 @@ export function InputWithMerge(props: InputWithMergeProps) {
     },
     [propsOnChange]
   );
+
+  const onMergeSelect = (mergeTag: string) => {
+    setCombinedValue(`${value}${mergeTag}`);
+  };
 
   const onKeyDown = useCallback(
     (ev: React.KeyboardEvent<HTMLInputElement>) => {
@@ -65,14 +69,17 @@ export function InputWithMerge(props: InputWithMergeProps) {
     <>
       <div style={{ flex: 1, display: 'flex' }}>
         <ArcoInput
-          {...{ ...props, quickchange: undefined }}
-          onChange={(value) => onChange(value)}
+          {...{ ...props, quickchange: undefined, value: combinedValue }}
+          onChange={(value) => {
+            setCombinedValue(value);
+            onChange(value);
+          }}
           onKeyDown={onKeyDown}
         />
         {mergeTags && (
           <Popover
             trigger="click"
-            content={<MergeTags value={value} onChange={onChange} />}
+            content={<MergeTags value={value} onChange={onMergeSelect} />}
           >
             <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
           </Popover>

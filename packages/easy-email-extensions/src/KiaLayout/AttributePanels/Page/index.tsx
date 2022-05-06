@@ -1,7 +1,4 @@
-import {
-  Collapse,
-  Grid, Space
-} from '@arco-design/web-react';
+import { Collapse, Grid, Space } from '@arco-design/web-react';
 import { FontFamily } from '@extensions/AttributePanel';
 import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/attributes/AttributesPanelWrapper';
 import {
@@ -9,35 +6,15 @@ import {
   InputWithUnitField,
   TextAreaField,
   TextField,
-  TextWithMergeField
+  TextWithMergeField,
 } from '@extensions/components/Form';
 import { AddFont } from '@extensions/components/Form/AddFont';
-import {
-  Stack,
-  useEditorProps,
-  useFocusIdx
-} from 'easy-email-editor';
+import { Stack, useEditorProps, useFocusIdx } from 'easy-email-editor';
 import React from 'react';
-//import { FontFamily } from '../../attributes/FontFamily';
 
 export function Page() {
   const { focusIdx } = useFocusIdx();
   const { mergeTags } = useEditorProps();
-
-  // const testProps = {
-  //   value: '',
-  // };
-
-  // //.. TB DEBUG STUBs
-  // const onChange = (val: string) => {
-  //   testProps.value = val;
-  //   console.log(`on change ${testProps.value}`);
-  // };
-
-  // const props = {
-  //   value: '',
-  //   onChange: (value: string, e: any) => {},
-  // } as InputProps;
 
   if (!focusIdx) return null;
   return (
@@ -46,23 +23,7 @@ export function Page() {
         <Collapse defaultActiveKey={['0', '1']}>
           <Collapse.Item name="0" header="Email Setting">
             <Space direction="vertical">
-              {/* <Input
-                style={{ flex: 1 }}
-                value={testProps.value}
-                onChange={onChange}
-                name="TB DEBUG"
-              />
-
-              {mergeTags && (
-                <Popover
-                  trigger="click"
-                  content={<MergeTags value={testProps.value} onChange={onChange} />}
-                >
-                  <ArcoButton icon={<IconFont iconName="icon-merge-tags" />} />
-                </Popover>
-              )} */}
               <TextWithMergeField label="Subject" name="subject" inline />
-              {/* <TextField label="Subject" name={'subject'} inline /> */}
               <TextField label="SubTitle" name={'subTitle'} inline />
               <InputWithUnitField
                 label="Width"
