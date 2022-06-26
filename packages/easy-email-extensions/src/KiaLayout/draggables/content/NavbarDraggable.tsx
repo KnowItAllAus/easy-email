@@ -59,6 +59,7 @@ export const NavbarDraggable = ({ children }: INavbarDraggableProps) => {
       },
       attributes: {
         align: 'center',
+        'base-url': 'https://mjml.io',
       },
       children: [],
     },
