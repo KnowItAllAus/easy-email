@@ -22,8 +22,7 @@
     "typings": "tsc --declaration --emitDeclarationOnly --project tsconfig.json",
     "build": "rimraf lib  && npm run typings && tsc-alias  && vite build --config vite.config.ts",
     "block": "ts-node -r tsconfig-paths/register scripts/generateBlockJSX.ts",
-    "format": "eslint --fix  --ext .tsx,.ts src/",
-    "test": "jest  --coverage"
+    "format": "eslint --fix  --ext .tsx,.ts src/"
   },
   "husky": {
     "hooks": {
