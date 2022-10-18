@@ -1,9 +1,9 @@
-
 import { IconFont, useEditorProps } from 'easy-email-editor';
 import {
-  Button as ArcoButton, Input as ArcoInput,
+  Button as ArcoButton,
+  Input as ArcoInput,
   InputProps as ArcoInputProps,
-  Popover
+  Popover,
 } from '@arco-design/web-react';
 import { MergeTags } from '@extensions/AttributePanel';
 import React, { useCallback, useState } from 'react';
@@ -31,10 +31,14 @@ export function InputWithMerge(props: InputWithMergeProps) {
     [propsOnChange]
   );
 
-  const onMergeSelect = useCallback((mergeTag: string) => {
-    setCombinedValue(`${value}${mergeTag}`);
-  }, [value]);
-
+  const onMergeSelect = useCallback(
+    (mergeTag: string) => {
+      const newValue = value + mergeTag;
+      setCombinedValue(newValue);
+      onChange(newValue);
+    },
+    [value]
+  );
   const onKeyDown = useCallback(
     (ev: React.KeyboardEvent<HTMLInputElement>) => {
       if (onPropsKeyDown) {
